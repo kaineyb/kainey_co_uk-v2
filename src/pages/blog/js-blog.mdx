@@ -1,0 +1,90 @@
+# JavaScript: The Spread operator can be destructive.
+
+## While learning React, I was taught to use the spread operator to copy an array. This is not always a good idea.
+
+Consider the below:
+
+```js
+> const array1 = [{id: 1, name: "John"}, {id:2, name: "Jane"}]
+> const array2 = [...array1]
+```
+
+We create an array called array1, and we 'copy' it using the spread operator ...
+
+Now we have a copy we can update this, and the original will be intact right? Nope, wrong.
+
+```js
+> array2[0]['name'] = "Bob"
+```
+
+If we take a look at each array, we can see that both arrays have the same objects.
+
+```js
+> array1
+> [ { id: 1, name: 'Bob' }, { id: 2, name: 'Jane' } ]
+
+> array2
+> [ { id: 1, name: 'Bob' }, { id: 2, name: 'Jane' } ]
+```
+
+Why is this happening and why does the below seem to work?
+
+```js
+> const array1 = [1,2,3]
+
+> array2 = [...array1]
+
+> array1[0] = 33
+
+> array1
+> [ 33, 2, 3 ]
+
+> array2
+> [ 1, 2, 3 ]
+```
+
+Any ideas? I am going with mutability.
+
+In JavaScript, only objects and arrays are mutable, not primitive values.
+
+If you've never heard of mutability, mutable and immutable. Think mutant and mutation. In laymen terms, changeable and unchangeable. You can read more on MDN
+
+Still don't follow? Well, we can't actually change the number 1 into number 33. What actually happens is we're dumping out the reference to number 1 and changing it to the reference to number 33.
+
+In our original example we used objects, which ARE mutable. So the object is the same. Fundamentally we have a list (array) of objects, and if we copy that list we still have the same reference to the object in memory. And if we change that object in memory, both lists reference the same object so both lists update.
+
+I hope that explains it.
+
+Alright great, you've proved your point, but HOW do I clone an array of objects to update the state without changing the original?
+Well good question.
+
+Personally the only solution I've seen that is also relatively short. Is using the map method of the Array class.
+
+```js
+> const array2 = array1.map((item) => ({ ...item }))
+```
+
+We're creating a new object, with the same key value pairs. Therefore it has a new reference and therefore it doesn't change when we update the original.
+
+```js
+> const array1 = [{id: 1, name: "John"}, {id:2, name: "Jane"}]
+> const array2 = array1.map((item) => ({ ...item }))
+
+> array2
+> [ { id: 1, name: 'John' }, { id: 2, name: 'Jane' } ]
+
+> array2[0]['name'] = "Bob"
+> 'Bob'
+
+> array1
+> [ { id: 1, name: 'John' }, { id: 2, name: 'Jane' } ]
+
+> array2
+> [ { id: 1, name: 'Bob' }, { id: 2, name: 'Jane' } ]
+```
+
+And hey, with this code we're still using the spread method right?
+
+Hope that helps!
+
+Kaine
