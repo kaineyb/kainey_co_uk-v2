@@ -1,4 +1,4 @@
 export interface Display {
-  navBar: true;
-  footer: true;
+  navBar: boolean;
+  footer: boolean;
 }

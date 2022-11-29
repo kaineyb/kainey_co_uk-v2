@@ -8,7 +8,7 @@ export class NavLink implements INavLink {
 
   constructor(
     label: string,
-    href: string = "",
+    href: string = "#",
     display: Display = { navBar: true, footer: true }
   ) {
     this.href = href;
