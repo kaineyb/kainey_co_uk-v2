@@ -1,0 +1,11 @@
+---
+export interface Props {
+  links: object[];
+}
+
+const { links } = Astro.props;
+---
+
+<ul>
+  {links.map((item) => <li>{item}</li>)}
+</ul>
