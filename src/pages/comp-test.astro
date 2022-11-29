@@ -1,9 +1,13 @@
 ---
-import { config } from "../../constants";
+import { config } from "../../config";
+import Footer from "../components/Footer";
 import Nav from "../components/Nav.astro";
 import Layout from "../layouts/Minimal.astro";
 ---
 
-<Layout title="Comp Test"><Nav links={config.navLinks} /></Layout>
+<Layout title="Comp Test"
+  ><Nav links={config.navLinks} />
+  <Footer links={config.navLinks} />
+</Layout>
 
 <style></style>
