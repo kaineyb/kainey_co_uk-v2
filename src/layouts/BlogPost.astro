@@ -16,7 +16,21 @@ type Image = {
   url: string;
   alt: string;
 };
+
 const { frontmatter } = Astro.props;
+
+const date = new Date(frontmatter.pubDate).toLocaleDateString([], {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const time = new Date(frontmatter.pubDate).toLocaleTimeString([], {
+  timeZoneName: "short",
+  hour: "2-digit",
+  minute: "2-digit",
+});
 ---
 
 <!DOCTYPE html>
@@ -42,7 +56,10 @@ const { frontmatter } = Astro.props;
       width="600px"
     />
     <!-- Posted on Tuesday 12 April 2022 @ 08:59 AM UTC by Kaine -->
-    <p>Posted on {frontmatter.pubDate} by {frontmatter.author}</p>
+    <p>Posted on {date} @ {time} by {frontmatter.author}</p>
+
+    {}
+    {}
 
     Tags
     <ul>{frontmatter.tags.map((item) => <li>{item}</li>)}</ul>

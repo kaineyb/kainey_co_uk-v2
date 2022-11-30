@@ -15,8 +15,6 @@
     "@astrojs/react": "^1.2.2",
     "@code-hike/mdx": "^0.7.4",
     "@emotion/react": "^11.10.5",
-    "@mantine/core": "^5.8.4",
-    "@mantine/hooks": "^5.8.4",
     "@mdx-js/react": "^2.1.5",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
