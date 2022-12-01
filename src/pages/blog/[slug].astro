@@ -1,13 +1,48 @@
 ---
-export function getStaticPaths() {
-  return [
-    { params: { dog: "clifford" } },
-    { params: { dog: "rover" } },
-    { params: { dog: "spot" } },
-  ];
+import Layout from "../../layouts/SideBarLayout.astro";
+
+import BlogHeader from "../../components/blogs/BlogHeader.astro";
+import BlogTags from "../../components/blogs/BlogTags.astro";
+import PostedBy from "../../components/blogs/PostedBy.astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../posts/*.mdx");
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.frontmatter.slug,
+    },
+    props: {
+      post,
+    },
+  }));
 }
 
-const { dog } = Astro.params;
+export interface Props {
+  title: string;
+}
+
+const { Content, frontmatter } = Astro.props.post;
 ---
 
-<div>Good dog, {dog}!</div>
+<Layout title={frontmatter.title}>
+  <section>
+    <BlogHeader
+      title={frontmatter.title}
+      description={frontmatter.description}
+    />
+    <PostedBy author={frontmatter.author} pubDate={frontmatter.pubDate} />
+    <BlogTags tags={frontmatter.tags} />
+    <Content />
+  </section>
+</Layout>
+
+<style>
+  @media screen and (min-width: 1024px) {
+    section {
+      grid-column-start: 1;
+      grid-column-end: 9;
+      grid-row-start: 1;
+    }
+  }
+</style>

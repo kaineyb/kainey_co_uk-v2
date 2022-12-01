@@ -1,7 +1,11 @@
 ---
-const posts = await Astro.glob("../pages/blog/*.mdx");
+const posts = await Astro.glob("../posts/*.mdx");
 
-const tagsArray: string[][] = posts.map((item) => item.frontmatter.tags);
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+
+const tagsArray: string[][] = nonDraftPosts.map(
+  (item) => item.frontmatter.tags
+);
 
 type results = {
   [tag: string]: number;
@@ -42,7 +46,7 @@ function outputDate(pubDate: string) {
     <h4>Recent Posts</h4>
     <ul class="blog-aside">
       {
-        posts?.slice(0, 5).map((item) => (
+        nonDraftPosts?.slice(0, 5).map((item) => (
           <li>
             <a href={`/blog/${item.frontmatter.slug}`}>
               <strong>{item.frontmatter.title}</strong>
