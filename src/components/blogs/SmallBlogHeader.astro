@@ -1,0 +1,21 @@
+---
+const { slug, title, description } = Astro.props;
+---
+
+<h2>
+  <a href={`/blog/${slug}`}>
+    {title}
+  </a>
+</h2>
+<h3>{description}</h3>
+
+<style>
+  h2 > a {
+    color: var(--color-headings);
+  }
+
+  h2 > a:hover {
+    color: var(--color-headings);
+    text-decoration-color: var(--color-secondary);
+  }
+</style>

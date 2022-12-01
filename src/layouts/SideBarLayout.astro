@@ -1,0 +1,30 @@
+---
+import RecentPosts from "../components/RecentPosts.astro";
+import Layout from "../layouts/Base.astro";
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <main>
+    <slot />
+    <RecentPosts />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: var(--padding-main);
+    padding-top: 3rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    main {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0 2.5rem;
+      width: 1024px;
+      margin: 0 auto;
+    }
+  }
+</style>

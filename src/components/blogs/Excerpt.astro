@@ -1,0 +1,13 @@
+---
+const { excerpt } = Astro.props;
+
+function createExcerpt(text: string) {
+  if (text.length > 10) {
+    text = text.substring(0, 10) + "...";
+  }
+
+  return text;
+}
+---
+
+{createExcerpt(excerpt)}

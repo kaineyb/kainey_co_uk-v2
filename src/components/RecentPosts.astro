@@ -1,0 +1,126 @@
+---
+const posts = await Astro.glob("../pages/blog/*.mdx");
+
+const tagsArray: string[][] = posts.map((item) => item.frontmatter.tags);
+
+type results = {
+  [tag: string]: number;
+};
+
+const tagResults: results = {};
+
+for (const tags of tagsArray) {
+  for (const tag of tags) {
+    if (tagResults[tag]) tagResults[tag] += 1;
+    else tagResults[tag] = 1;
+  }
+}
+
+const tagArray = [];
+
+for (const key in tagResults) {
+  tagArray.push({ name: key, count: tagResults[key] });
+}
+
+tagArray.sort((a, b) => {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+});
+
+function outputDate(pubDate: string) {
+  return new Date(pubDate).toLocaleDateString([], {
+    year: "2-digit",
+    month: "short",
+    day: "numeric",
+  });
+}
+---
+
+<aside>
+  <section>
+    <h4>Recent Posts</h4>
+    <ul class="blog-aside">
+      {
+        posts?.slice(0, 5).map((item) => (
+          <li>
+            <a href={`/blog/${item.frontmatter.slug}`}>
+              <strong>{item.frontmatter.title}</strong>
+              <br /> Posted: {outputDate(item.frontmatter.pubDate)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h4>Tags</h4>
+    <ul class="tag-list">
+      {
+        tagArray?.map((tag) => (
+          <li>
+            <a href={`/blog/tag/${tag.name.toLowerCase()}`}>{tag.name}</a> -
+            {tag.count} Posts
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <style>
+    aside {
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+      background-color: var(--color--whitepoint);
+      border: 3px solid var(--color-secondary);
+      box-shadow: 0.3rem 0.3rem var(--color-secondary);
+      height: auto;
+      padding: 1rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+      aside {
+        margin: 0;
+        grid-row-start: 1;
+        grid-column: 9 / -1;
+        /* float: right; */
+      }
+    }
+
+    .blog-aside {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+
+    .blog-aside li a {
+      width: 100%;
+      display: inline-block;
+      border-radius: 0.5rem;
+      border: 3px solid var(--color-secondary);
+      box-shadow: 0.3rem 0.3rem var(--color-secondary);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-image: var(--svg-tri-bg);
+    }
+
+    .blog-aside li a:hover {
+      background-color: var(--color-highlight);
+      color: var(--color--whitepoint);
+      text-decoration: none;
+    }
+
+    .blog-aside h4 {
+      font-family: var(--font-body);
+      font-weight: bold;
+    }
+
+    .tag-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .tag-list h4 {
+      margin-bottom: 1rem;
+    }
+  </style>
+</aside>

@@ -1,0 +1,9 @@
+---
+import { outputTimeDate } from "../../snippets/dateTime";
+
+const { pubDate, author } = Astro.props;
+---
+
+<p>
+  <strong>Posted on {outputTimeDate(pubDate)} by {author}</strong>
+</p>
