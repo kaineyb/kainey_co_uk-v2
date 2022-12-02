@@ -1,0 +1,103 @@
+---
+const { project, Content } = Astro.props;
+---
+
+<article>
+  <a href=""
+    ><img class="project__image" src={project.frontmatter.image} alt="" />
+  </a>
+
+  <h2>
+    <a href={`/projects/${project.frontmatter.slug}`}
+      >{project.frontmatter.title}</a
+    >
+  </h2>
+
+  <ul class="project__links">
+    {
+      project.frontmatter.homepage && (
+        <li>
+          <img src="icons/www.svg" alt="" class="project__icon" />
+          <a href={project.frontmatter.homepage}>Homepage</a>
+        </li>
+      )
+    }
+
+    {
+      project.frontmatter.repository && (
+        <li>
+          <img src="icons/github.svg" alt="" class="project__icon" />
+          <a href={project.frontmatter.repository}>Repository</a>
+        </li>
+      )
+    }
+  </ul>
+  {project.frontmatter.excerpt}
+  <p>
+    <a href={`/projects/${project.frontmatter.slug}`}
+      >Continue Reading &raquo;</a
+    >
+  </p>
+</article>
+
+<style>
+  article {
+  }
+
+  h2 > a {
+    color: var(--color-headings);
+  }
+
+  h2 > a:hover {
+    color: var(--color-headings);
+    text-decoration: underline;
+    text-decoration-color: var(--color-secondary);
+  }
+  .project__links {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  .project__links li {
+    padding-left: 0px;
+  }
+
+  .project__links .project__icon {
+    fill: var(--color-secondary);
+    margin-right: 10px;
+    padding: 1px;
+    stroke: var(--color-secondary);
+    vertical-align: middle;
+    width: 1.5rem;
+  }
+
+  .project__image {
+    border-radius: 0.3rem;
+    border: 1px solid var(--color-primary);
+    box-shadow: 0.2rem 0.2rem var(--color-body-lighter);
+    filter: grayscale(50%);
+    width: 100%;
+  }
+
+  .project__image:hover {
+    filter: grayscale(0%);
+    box-shadow: 0.2rem 0.2rem var(--color-secondary);
+  }
+
+  /* From 768px and up - Laptops and Tablets */
+  @media screen and (min-width: 768px) {
+    article {
+      flex-basis: 46%;
+    }
+
+    article > .project__image {
+      object-fit: cover;
+      height: 20rem;
+    }
+  }
+  /* From 1024px and up - Desktop */
+  @media screen and (min-width: 1024px) {
+    article {
+      flex-basis: 30%;
+    }
+  }
+</style>

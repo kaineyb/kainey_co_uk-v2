@@ -132,10 +132,3 @@ body {
 h1 {
   border-bottom: 0.3rem solid var(--color-secondary);
 }
-
-/* 
-@media screen and (min-width: 768px) {
-  body {
-    margin: 0 auto;
-  }
-} */

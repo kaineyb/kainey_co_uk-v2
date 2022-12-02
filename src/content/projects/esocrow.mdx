@@ -1,0 +1,37 @@
+---
+title: ESO Crow
+slug: eso-crow
+pubDate: 0001-01-01 0:00
+image: https://img.kainey.co.uk/esocrow.png
+homepage: https://www.esocrow.com
+repository:
+excerpt: "ESO Crow was created to help navigate in the Elder Scrolls Online (without using wayshrines).
+This can be quite handy when you're new to the game or just starting a new alt."
+# draft: true
+---
+
+ESO Crow was created to help navigate in the [Elder Scrolls Online](https://www.elderscrollsonline.com/) (without using wayshrines).  
+This can be quite handy when you're new to the game or just starting a new alt.
+
+Deploys from Github using a cpanel.yml and custom deploy.sh to either the dev/staging [site](https://dev.esocrow.com) or the live site you're on now.
+
+Powered, protected and certified by [Cloudflare](https://www.cloudflare.com/) :)
+
+---
+
+**Front end:** HTML, CSS and little JS.
+
+**Backend:** Python w/ [Flask](https://flask.palletsprojects.com/) and [NetworkX](https://networkx.org/)
+
+**Features:**
+
+- Navigate Elder Scrolls Online using without using Wayshrine Navigation. (Uses [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) for Navigation using [NetworkX](https://networkx.org/))
+- List of [Locations](https://esocrow.com/locations) and [Zones](https://esocrow.com/zones). With all possible connections from each [Location](https://esocrow.com/Windhelm)
+- Contact form using WTForms w/ Recaptcha
+
+**Libraries used:**
+
+- Flask
+  - Flask-Mail
+- NetworkX
+- WTForms

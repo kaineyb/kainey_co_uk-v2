@@ -1,0 +1,50 @@
+---
+import MiniProject from "../../components/projects/MiniProject.astro";
+import Layout from "../../layouts/Base.astro";
+
+const projects = await Astro.glob("../../content/projects/*.mdx");
+let nonDraftPosts = projects.filter((project) => !project.frontmatter.draft);
+
+nonDraftPosts = nonDraftPosts.sort((a, b) => {
+  if (a.frontmatter.pubDate < b.frontmatter.pubDate) return 1;
+  if (a.frontmatter.pubDate > b.frontmatter.pubDate) return -1;
+  return 0;
+});
+---
+
+<Layout title="Welcome">
+  <h1>Projects</h1>
+  <section class="project-container">
+    {nonDraftPosts.map((project) => <MiniProject project={project} />)}
+  </section>
+  <style>
+    h1 {
+      grid-column: 1 / span 12;
+    }
+
+    .project-container {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: left;
+      gap: 2.5rem 2.5rem;
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
+
+    @media screen and (min-width: 768px) {
+      .project-container {
+        margin-top: 0;
+        gap: 3rem;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .project-container {
+        margin-top: 0;
+        gap: 3rem;
+      }
+    }
+  </style>
+</Layout>

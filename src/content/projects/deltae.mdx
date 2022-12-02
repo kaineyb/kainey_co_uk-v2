@@ -1,0 +1,58 @@
+---
+title: DeltaE
+slug: deltae
+pubDate: 0001-01-02 0:00
+image: https://img.kainey.co.uk/deltae.png
+homepage: https://pypi.org/project/deltae/
+repository: https://github.com/kaineyb/deltae
+excerpt: "Returns a value of colour difference using the '00 or '76 DeltaE formula."
+# draft: true
+---
+
+Returns a value of colour difference using the '00 or '76 DeltaE formula.
+
+A Delta E value of less that 0 is generally perceived as being the same colour by most humans. Pantone swatches are produced within a DeltaE of 2.0. More reading here on the [colour difference](http://www.colorwiki.com/wiki/Delta_E:_The_Color_Difference):
+
+I created this module with the plan to test against a dataset supplied by the [University of Rochester](http://www2.ece.rochester.edu/~gsharma/ciede2000/) to make sure my code (and maths - _thanks to Jamie for the maths help and guidance!)_ worked as expected. I created code to automatically create the tests needed from the dataset supplied.
+
+I chose DeltaE 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for nearly 15 years. I originally started working on this in JavaScript years ago, however I found that Bruce Lindbloom had done the same on his site, so decided to see if I could do this to Python.
+
+[![](https://app.travis-ci.com/kaineyb/deltae.svg?branch=master)](https://app.travis-ci.com/kaineyb/deltae) Built and tested using [poetry](https://python-poetry.org/), [unittest](https://docs.python.org/3/library/unittest.html) and [Travis CI](https://www.travis-ci.com/)
+
+**Using:** Python with the builtin math module and testing using unittest.
+
+**Features:**
+
+- Delta E 2000 Colour Difference
+- Delta E 1976 Colour Difference
+
+**Installation:**
+
+```bash
+pip install deltae
+```
+
+**Example Usage:**
+
+```bash
+    import deltae
+```
+
+**Takes CIELAB values as a dictionary - example below:**
+
+```py
+Lab1 = {'L': 50.00, 'a': 2.6772, 'b': -79.7751}
+Lab2 = {'L': 50.00, 'a': 0.00, 'b': -82.7485}
+```
+
+**Get the DeltaE 1976 Formula of 2 Lab Values:**
+
+```py
+    deltae.delta_e_1976(Lab1, Lab2)
+```
+
+**Get the DeltaE 2000 Formula of 2 Lab Values:**
+
+```py
+    deltae.delta_e_2000(Lab1, Lab2)
+```
