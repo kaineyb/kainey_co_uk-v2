@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Base.astro";
+
+const { frontmatter } = Astro.props;
+
+console.log(frontmatter.h3);
+---
+
+<Layout title="About">
+  <section>
+    <slot />
+  </section>
+</Layout>
+
+<style>
+  @media screen and (min-width: 1024px) {
+    section {
+      grid-column-start: 3;
+      grid-column-end: 11;
+      grid-row-start: 1;
+    }
+  }
+</style>

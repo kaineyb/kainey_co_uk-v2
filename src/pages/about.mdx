@@ -1,0 +1,48 @@
+---
+title: About
+layout: "../layouts/About.astro"
+
+h1: "About"
+h2: "Me, Myself, and I."
+h3: Hey, I am Kaine, I live in Essex in the UK. I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
+linkTree:
+  [
+    {
+      img: "/icons/github.svg",
+      link: "https://github.com/kaineyb",
+      label: "GitHub",
+    },
+    {
+      img: "icons/twitter.svg",
+      link: "https://twitter.com/Kainey",
+      label: "Twitter",
+    },
+    {
+      img: "icons/linkedin.svg",
+      link: "https://www.linkedin.com/in/kaine-bruce-a48a0b36/",
+      label: "LinkedIn",
+    },
+  ]
+---
+
+import LinkTree from "../components/LinkTree.astro";
+
+# {frontmatter.title}
+
+## {frontmatter.h2}
+
+### Hey, I am Kaine, I live in Essex in the UK. I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
+
+<LinkTree links={frontmatter.linkTree} />
+
+I've dabbled in programming since I was a youngster. It started with an Amstrad 464 where I started to play around with [BASIC](https://en.wikipedia.org/wiki/BASIC).
+
+In the late 90s I only had internet access via my phone ([WAP](https://en.wikipedia.org/wiki/Wireless_Application_Protocol)), at my friends houses or when at school.
+
+I started to learn XHTML, CSS and a bit of JavaScript. That evolved to PHP (of which I've mostly forgotten!) where I built a few sites using Wordpress.
+
+I've since been updating my knowledge of HTML and CSS to their current forms. I've recently learned Python; of which by using [Flask](https://flask.palletsprojects.com/) I built [esocrow.com](https://www.esocrow.com) and the site you're on now :)
+
+Other side projects I've made are on my [GitHub](https://github.com/kaineyb). Like my DeltaE 2000 [(colour difference)](https://en.wikipedia.org/wiki/Color_difference) project (check it out on [pypi](https://pypi.org/project/deltae/)). Which tests against a dataset the University of Rochester's [supplied data](http://www2.ece.rochester.edu/~gsharma/ciede2000/) to make sure my code and maths _(thanks to Jamie for the maths help!)_ worked as expected.
+
+I chose DeltaE 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for nearly 15 years.
