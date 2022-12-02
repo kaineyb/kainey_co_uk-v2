@@ -1,12 +1,12 @@
 ---
+import BlogHeaderSmall from "../components/blogs/BlogHeaderSmall.astro";
 import BlogTags from "../components/blogs/BlogTags.astro";
 import ContinueReadingLink from "../components/blogs/ContinueReadingLink.astro";
 import Excerpt from "../components/blogs/Excerpt.astro";
 import PostedBy from "../components/blogs/PostedBy.astro";
-import SmallBlogHeader from "../components/blogs/SmallBlogHeader.astro";
 import Layout from "../layouts/SideBarLayout.astro";
 
-const posts = await Astro.glob("../posts/*.mdx");
+const posts = await Astro.glob("../content/posts/*.mdx");
 const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
@@ -17,7 +17,7 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
     {
       nonDraftPosts.map((post) => (
         <article>
-          <SmallBlogHeader
+          <BlogHeaderSmall
             title={post.frontmatter.title}
             description={post.frontmatter.description}
             slug={post.frontmatter.slug}

@@ -1,0 +1,82 @@
+---
+import BlogHeaderSmall from "../../../components/blogs/BlogHeaderSmall.astro";
+import BlogTags from "../../../components/blogs/BlogTags.astro";
+import ContinueReadingLink from "../../../components/blogs/ContinueReadingLink.astro";
+import Excerpt from "../../../components/blogs/Excerpt.astro";
+import PostedBy from "../../../components/blogs/PostedBy.astro";
+import Layout from "../../../layouts/SideBarLayout.astro";
+import { toTitleCase } from "../../../snippets/case";
+import { generateTagArray } from "../../../snippets/tags";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../../content/posts/*.mdx");
+
+  const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+
+  const tagsArray: string[][] = nonDraftPosts.map(
+    (item) => item.frontmatter.tags
+  );
+
+  const tagResults = generateTagArray(tagsArray);
+
+  return tagResults.map((tag) => ({
+    params: {
+      tag: tag.toLowerCase(),
+    },
+  }));
+}
+
+const posts = await Astro.glob("../../../content/posts/*.mdx");
+
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+
+export interface Props {
+  title: string;
+}
+
+export interface Params {
+  tag: string;
+}
+
+const { tag }: { tag: string } = Astro.params;
+
+const taggedPosts = nonDraftPosts.filter((post) =>
+  post.frontmatter.tags.some(
+    (element: string) => element.toLowerCase() === tag.toLowerCase()
+  )
+);
+---
+
+<Layout title={`All Blogs tagged with: ${toTitleCase(tag)}`}>
+  <section>
+    <h1>All Blogs tagged with: {toTitleCase(tag)}</h1>
+    {
+      taggedPosts.map((post) => (
+        <article>
+          <BlogHeaderSmall
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            slug={post.frontmatter.slug}
+          />
+          <PostedBy
+            author={post.frontmatter.author}
+            pubDate={post.frontmatter.pubDate}
+          />
+          <BlogTags tags={post.frontmatter.tags} />
+          <Excerpt excerpt={post.frontmatter.excerpt} />
+          <ContinueReadingLink slug={post.frontmatter.slug} />
+        </article>
+      ))
+    }
+  </section>
+</Layout>
+
+<style>
+  @media screen and (min-width: 1024px) {
+    section {
+      grid-column-start: 1;
+      grid-column-end: 9;
+      grid-row-start: 1;
+    }
+  }
+</style>

@@ -6,7 +6,7 @@ import BlogTags from "../../components/blogs/BlogTags.astro";
 import PostedBy from "../../components/blogs/PostedBy.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../posts/*.mdx");
+  const posts = await Astro.glob("../../content/posts/*.mdx");
 
   return posts.map((post) => ({
     params: {

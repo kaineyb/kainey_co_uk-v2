@@ -1,5 +1,6 @@
 ---
-const posts = await Astro.glob("../posts/*.mdx");
+import { generateTagHash, TagHashResults } from "../snippets/tags";
+const posts = await Astro.glob("../content/posts/*mdx");
 
 const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 
@@ -7,18 +8,7 @@ const tagsArray: string[][] = nonDraftPosts.map(
   (item) => item.frontmatter.tags
 );
 
-type results = {
-  [tag: string]: number;
-};
-
-const tagResults: results = {};
-
-for (const tags of tagsArray) {
-  for (const tag of tags) {
-    if (tagResults[tag]) tagResults[tag] += 1;
-    else tagResults[tag] = 1;
-  }
-}
+const tagResults: TagHashResults = generateTagHash(tagsArray);
 
 const tagArray = [];
 
