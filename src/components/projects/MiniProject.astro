@@ -3,7 +3,7 @@ const { project, Content } = Astro.props;
 ---
 
 <article>
-  <a href=""
+  <a href={`/projects/${project.frontmatter.slug}`}
     ><img class="project__image" src={project.frontmatter.image} alt="" />
   </a>
 
@@ -17,7 +17,7 @@ const { project, Content } = Astro.props;
     {
       project.frontmatter.homepage && (
         <li>
-          <img src="icons/www.svg" alt="" class="project__icon" />
+          <img src="/icons/www.svg" alt="" class="project__icon" />
           <a href={project.frontmatter.homepage}>Homepage</a>
         </li>
       )
@@ -26,7 +26,7 @@ const { project, Content } = Astro.props;
     {
       project.frontmatter.repository && (
         <li>
-          <img src="icons/github.svg" alt="" class="project__icon" />
+          <img src="/icons/github.svg" alt="" class="project__icon" />
           <a href={project.frontmatter.repository}>Repository</a>
         </li>
       )
@@ -87,11 +87,6 @@ const { project, Content } = Astro.props;
   @media screen and (min-width: 768px) {
     article {
       flex-basis: 46%;
-    }
-
-    article > .project__image {
-      object-fit: cover;
-      height: 20rem;
     }
   }
   /* From 1024px and up - Desktop */

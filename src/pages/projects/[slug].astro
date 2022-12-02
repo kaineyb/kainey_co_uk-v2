@@ -1,0 +1,116 @@
+---
+import Layout from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const projects = await Astro.glob("../../content/projects/*.mdx");
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.frontmatter.slug,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+
+export interface Props {
+  title: string;
+}
+
+const { Content, frontmatter } = Astro.props.project;
+---
+
+<Layout title={frontmatter.title}>
+  <section>
+    <article>
+      {
+        frontmatter.image && (
+          <img src={frontmatter.image} class="project__image" alt="" />
+        )
+      }
+
+      <h1>{frontmatter.title}</h1>
+
+      <ul class="project__links">
+        {
+          frontmatter.homepage && (
+            <li>
+              <img src="/icons/www.svg" class="project__icon" />
+              <a href={frontmatter.homepage}>Homepage</a>
+            </li>
+          )
+        }
+
+        {
+          frontmatter.repository && (
+            <li>
+              <img src="/icons/github.svg" alt="" class="project__icon" />
+              <a href={frontmatter.repository}>Repository</a>
+            </li>
+          )
+        }
+      </ul>
+
+      <Content />
+    </article>
+  </section>
+</Layout>
+
+<style>
+  /* From 768px and up - Laptops and Tablets */
+  @media screen and (min-width: 768px) {
+    .project__image {
+      object-fit: cover;
+      height: 20rem;
+    }
+  }
+  /* From 1024px and up - Desktop */
+  @media screen and (min-width: 1024px) {
+    section {
+      grid-column-start: 1;
+      grid-column-end: 13;
+      grid-row-start: 1;
+    }
+  }
+
+  .project__links {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  .project__links li {
+    padding-left: 0px;
+  }
+
+  .project__links .project__icon {
+    padding: 1px;
+    width: 1.5rem;
+    vertical-align: middle;
+    margin-right: 10px;
+    fill: var(--color-secondary);
+    stroke: var(--color-secondary);
+  }
+
+  .project-container .project__image {
+    width: 100%;
+  }
+
+  .project-container .project__image {
+    border: 1px solid var(--color-primary);
+    border-radius: 0.3rem;
+    filter: grayscale(50%);
+  }
+
+  .project-container .project__image:hover {
+    filter: grayscale(0%);
+    box-shadow: 0.2rem 0.2rem var(--color-secondary);
+  }
+
+  article > .project__image {
+    width: 100%;
+    border: 1px solid var(--color-primary);
+    border-radius: 0.3rem;
+    box-shadow: 0.2rem 0.2rem var(--color-body-lighter);
+  }
+</style>
