@@ -1,14 +1,22 @@
 import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-export const onRequest: PagesFunction = mailChannelsPlugin({
+const errorHandler: PagesFunction = async ({ next }) => {
+  try {
+    return await next();
+  } catch (error: unknown) {
+    return new Response(`${error.message}\n${error.stack}`, { status: 500 });
+  }
+};
+
+const mailMiddleware: PagesFunction = mailChannelsPlugin({
   personalizations: [
     {
-      to: [{ name: "Kaine Bruce", email: "kaineyb@gmail.com" }],
+      to: [{ name: "To Kaine", email: "kaineyb@gmail.com" }],
     },
   ],
   from: {
-    name: "ACME Support",
-    email: "support@example.com",
+    name: "From Kaine",
+    email: "kaineyb@gmail.com",
   },
   respondWith: () => {
     return new Response(
@@ -16,3 +24,5 @@ export const onRequest: PagesFunction = mailChannelsPlugin({
     );
   },
 });
+
+export const onRequest = [errorHandler, mailMiddleware];
