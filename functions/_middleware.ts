@@ -14,9 +14,15 @@ const mailMiddleware: PagesFunction = mailChannelsPlugin({
       to: [{ name: "To Kaine", email: "kaineyb@gmail.com" }],
     },
   ],
-  from: {
-    name: "From Kaine",
-    email: "kaineyb@gmail.com",
+  from: ({ formData, name, request }) => {
+    console.log(request);
+    return {
+      email: formData.get("email"),
+      name: formData.get("name"),
+    };
+  },
+  subject: ({ formData }) => {
+    return formData.get("subject");
   },
   respondWith: () => {
     return new Response(
