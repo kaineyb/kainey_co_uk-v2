@@ -11,7 +11,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: "https://kainey.pages.dev/",
+  site: "https://kainey.pages.dev/",
   integrations: [react(), mdx()],
   output: "server",
   adapter: cloudflare({ mode: "directory" }),

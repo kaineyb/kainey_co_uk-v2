@@ -5,6 +5,7 @@ import BlogHeader from "../../components/blogs/BlogHeader.astro";
 import BlogTags from "../../components/blogs/BlogTags.astro";
 import PostedBy from "../../components/blogs/PostedBy.astro";
 
+// SSG
 export async function getStaticPaths() {
   const posts = await Astro.glob("../../content/posts/*.mdx");
 
@@ -22,7 +23,19 @@ export interface Props {
   title: string;
 }
 
-const { Content, frontmatter } = Astro.props.post;
+// const { Content, frontmatter } = Astro.props.post;
+
+// SSR
+
+const { slug } = Astro.params;
+const posts = await Astro.glob("../../content/posts/*.mdx");
+
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+
+const post = nonDraftPosts.find((post) => post.frontmatter.slug === slug);
+if (!post) return Astro.redirect("/404");
+
+const { Content, frontmatter } = post;
 ---
 
 <Layout title={frontmatter.title}>

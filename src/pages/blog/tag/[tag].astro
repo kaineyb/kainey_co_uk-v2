@@ -8,6 +8,7 @@ import Layout from "../../../layouts/SideBarLayout.astro";
 import { toTitleCase } from "../../../snippets/case";
 import { generateTagArray } from "../../../snippets/tags";
 
+// SSG
 export async function getStaticPaths() {
   const posts = await Astro.glob("../../../content/posts/*.mdx");
 
@@ -25,6 +26,8 @@ export async function getStaticPaths() {
     },
   }));
 }
+
+// SSR
 
 const posts = await Astro.glob("../../../content/posts/*.mdx");
 
