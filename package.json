@@ -7,18 +7,20 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev ./dist",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^4.1.0",
     "@astrojs/mdx": "^0.12.0",
     "@astrojs/react": "^1.2.2",
+    "@cloudflare/pages-plugin-mailchannels": "^0.1.1",
     "@code-hike/mdx": "^0.7.4",
     "@emotion/react": "^11.10.5",
     "@mdx-js/react": "^2.1.5",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
-    "astro": "^1.6.11",
+    "astro": "^1.6.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

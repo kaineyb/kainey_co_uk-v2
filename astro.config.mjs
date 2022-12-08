@@ -7,7 +7,12 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
+import cloudflare from "@astrojs/cloudflare";
+
+// https://astro.build/config
 export default defineConfig({
-  site: "https://my-site.com/",
+  // site: "https://kainey.pages.dev/",
   integrations: [react(), mdx()],
+  output: "server",
+  adapter: cloudflare({ mode: "directory" }),
 });
