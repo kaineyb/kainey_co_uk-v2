@@ -31,39 +31,33 @@ import { config } from "../../../config";
   /* Navigation */
 
   ul {
-    margin-bottom: 0.3rem;
     display: flex;
-    gap: 0.25rem;
     flex-direction: column;
+    gap: 0.25rem;
     list-style: none;
+    margin-bottom: 0.3rem;
     padding-left: 0;
-    text-align: center;
     position: relative;
+    text-align: center;
     top: -5px;
   }
 
-  /*  li:nth-of-type(even) {
-  background-color: var(--color-tertiary);
-} */
-
   a {
-    color: var(--color--whitepoint);
+    color: var(--color--blackpoint);
     display: block;
-    font-weight: 600;
-    text-decoration: none;
     line-height: 2.5;
   }
 
   li a {
-    margin: 0 1rem;
-    /* color: var(--color-body-darker); */
     background-color: var(--color-primary);
     background-image: var(--svg-tri-bg);
     border-radius: 0.5rem;
     border: 3px solid black;
     box-shadow: 0.3rem 0.3rem var(--color-primary);
+    color: var(--color-body-darker);
     font-weight: bold;
     height: 3rem;
+    margin: 0 1rem;
   }
 
   li a:hover {
@@ -100,21 +94,5 @@ import { config } from "../../../config";
     a {
       border: 0;
     }
-
-    /*  li:last-of-type {
-    border-radius: 0 10px 0 0;
-  }
-
-   li:first-of-type {
-    border-radius: 10px 0 0 0;
-  }
-
-   li:last-of-type a {
-    border-radius: inherit;
-  }
-
-   li:first-of-type a {
-    border-radius: inherit;
-  } */
   }
 </style>
