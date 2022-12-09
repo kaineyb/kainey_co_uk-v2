@@ -1,0 +1,64 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+import { config } from "../../../config";
+---
+
+<!-- <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="https://github.com/kaineyb">GitHub</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/contact">Contact Me</a></li>
+</ul> -->
+<ul>
+  {
+    config.navLinks.map(
+      (link) =>
+        link.display.footer && (
+          <li>
+            <a class={pathname === link.href ? "active" : ""} href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        )
+    )
+  }
+</ul>
+
+<style>
+  /* Footer */
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: var(--color--whitepoint);
+  }
+
+  li .active::before {
+    content: "»";
+  }
+
+  li .active::after {
+    content: "«";
+  }
+
+  @media screen and (min-width: 768px) {
+    ul {
+      padding-left: 0;
+      list-style: none;
+      display: inline-flex;
+    }
+
+    li {
+      margin: 0 0.5rem;
+    }
+  }
+</style>

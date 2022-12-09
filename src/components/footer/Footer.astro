@@ -1,19 +1,16 @@
 ---
+import NavBar from "./NavBar.astro";
+
+import { config } from "../../../config";
 ---
 
 <footer class="footer-main">
   <nav class="nav-footer">
     <a href="#">To the Top</a>
     <hr />
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="https://github.com/kaineyb">GitHub</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact Me</a></li>
-    </ul>
+    <NavBar />
     <hr />
-    <span>Kaine Bruce &copy; 2021</span>
+    <span>{config.copyRightText}</span>
   </nav>
 </footer>
 
@@ -36,11 +33,6 @@
   .footer-main .nav-footer {
     margin: 0 auto;
     max-width: 1024px;
-  }
-
-  .footer-main .nav-footer ul {
-    padding-left: 0;
-    list-style: none;
   }
 
   .footer-main .nav-footer a {
@@ -74,16 +66,6 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .footer-main .nav-footer ul {
-      padding-left: 0;
-      list-style: none;
-      display: inline-flex;
-    }
-
-    .footer-main .nav-footer li {
-      margin: 0 0.5rem;
     }
 
     .footer-main hr {
