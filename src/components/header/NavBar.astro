@@ -1,0 +1,120 @@
+---
+// export interface Props {
+//   title: string;
+//   body: string;
+//   href: string;
+// }
+
+// const { href, title, body } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+
+import { config } from "../../../config";
+---
+
+<ul>
+  {
+    config.navLinks.map(
+      (link) =>
+        link.display.navBar && (
+          <li>
+            <a class={pathname === link.href ? "active" : ""} href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        )
+    )
+  }
+</ul>
+
+<style>
+  /* Navigation */
+
+  ul {
+    margin-bottom: 0.3rem;
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    position: relative;
+    top: -5px;
+  }
+
+  /*  li:nth-of-type(even) {
+  background-color: var(--color-tertiary);
+} */
+
+  a {
+    color: var(--color--whitepoint);
+    display: block;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 2.5;
+  }
+
+  li a {
+    margin: 0 1rem;
+    /* color: var(--color-body-darker); */
+    background-color: var(--color-primary);
+    background-image: var(--svg-tri-bg);
+    border-radius: 0.5rem;
+    border: 3px solid black;
+    box-shadow: 0.3rem 0.3rem var(--color-primary);
+    font-weight: bold;
+    height: 3rem;
+  }
+
+  li a:hover {
+    color: #fff;
+    background-color: var(--color-highlight);
+    text-shadow: 0.08rem 0.08rem var(--color-primary);
+    box-shadow: 0.3rem 0.3rem var(--color-highlight);
+    border: 3px solid var(--color--whitepoint);
+    text-decoration: none;
+  }
+
+  li .active::before {
+    content: "»";
+  }
+
+  li .active::after {
+    content: "«";
+  }
+
+  @media screen and (min-width: 768px) {
+    ul {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    li {
+      width: 100%;
+    }
+
+    li a {
+      margin: 0;
+    }
+    a {
+      border: 0;
+    }
+
+    /*  li:last-of-type {
+    border-radius: 0 10px 0 0;
+  }
+
+   li:first-of-type {
+    border-radius: 10px 0 0 0;
+  }
+
+   li:last-of-type a {
+    border-radius: inherit;
+  }
+
+   li:first-of-type a {
+    border-radius: inherit;
+  } */
+  }
+</style>

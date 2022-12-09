@@ -2,7 +2,7 @@
 const { excerpt } = Astro.props;
 
 function createExcerpt(text: string) {
-  const cutOff = 250;
+  const cutOff = 330;
 
   if (text.length > cutOff) {
     return text.substring(0, cutOff) + "...";
