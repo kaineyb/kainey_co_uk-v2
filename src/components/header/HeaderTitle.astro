@@ -1,21 +1,28 @@
 ---
+const title = "Kaine Bruce";
 ---
 
-<div><a href="/">Kainey.co.uk</a></div>
+<div><a href="/">{title}</a></div>
 
 <style>
   div {
-    /* outline: 1px solid red; */
+    height: 35px;
+    font-size: 2rem;
+    font-family: var(--font-banner);
     display: flex;
-    justify-content: center;
-    /* Compensation for the outer 2rem padding */
-    padding-right: 2rem;
+    justify-content: end;
+    align-items: center;
+  }
+
+  div:hover a {
+    text-shadow: 0.1rem 0.1rem var(--color--black-lighter);
+    text-decoration: none;
   }
 
   @media screen and (min-width: 576px) {
     div {
       /* display: block; */
-      padding-right: 0;
+      /* padding-right: 0; */
     }
   }
 </style>

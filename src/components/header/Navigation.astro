@@ -20,28 +20,23 @@ import { config } from "../../../config";
   /* nav styles */
 
   .nav-links {
-    /* outline: 1px solid green; */
-    /* width: 100%; */
-    /* top: 5rem; */
-    /* left: 48px; */
-    background-color: #ff9776;
     display: none;
     margin: 0;
   }
 
   .nav-links a {
     display: block;
-    text-align: center;
-    padding: 10px 0;
+    text-align: left;
+    padding: 10px 2rem;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
-    /* text-transform: uppercase; */
   }
 
   .nav-links a:hover,
   a:focus {
-    background-color: #ff9776;
+    background-image: inherit;
+    background-color: var(--color--black-lighter);
   }
 
   .expanded {
@@ -50,11 +45,8 @@ import { config } from "../../../config";
 
   @media screen and (min-width: 576px) {
     .nav-links {
-      /* margin-left: 5em; */
       display: block;
-      /* position: static; */
       width: auto;
-      background: none;
     }
 
     .nav-links a {
