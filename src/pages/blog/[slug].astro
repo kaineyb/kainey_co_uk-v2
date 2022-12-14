@@ -40,16 +40,11 @@ const { Content, frontmatter } = post;
 ---
 
 <Layout title={frontmatter.title}>
-  <section class="single">
-    <BlogHeader
-      title={frontmatter.title}
-      description={frontmatter.description}
-    />
-    <PostedBy author={frontmatter.author} pubDate={frontmatter.pubDate} />
-    <BlogTags tags={frontmatter.tags} />
-    <Content />
-    <RecentPosts footer />
-  </section>
+  <BlogHeader title={frontmatter.title} description={frontmatter.description} />
+  <PostedBy author={frontmatter.author} pubDate={frontmatter.pubDate} />
+  <BlogTags tags={frontmatter.tags} />
+  <Content />
+  <RecentPosts footer />
 </Layout>
 
 <style></style>
