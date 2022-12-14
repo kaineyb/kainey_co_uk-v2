@@ -1,9 +1,10 @@
 ---
-import Layout from "../../layouts/SideBarLayout.astro";
+import Layout from "../../layouts/Base.astro";
 
 import BlogHeader from "../../components/blogs/BlogHeader.astro";
 import BlogTags from "../../components/blogs/BlogTags.astro";
 import PostedBy from "../../components/blogs/PostedBy.astro";
+import RecentPosts from "../../components/RecentPosts.astro";
 
 // SSG
 export async function getStaticPaths() {
@@ -48,15 +49,14 @@ const { Content, frontmatter } = post;
     <BlogTags tags={frontmatter.tags} />
     <Content />
   </section>
+  <RecentPosts footer />
 </Layout>
 
 <style>
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 992px) {
     section {
-      grid-column-start: 1;
-      grid-column-end: 9;
-      grid-row-start: 1;
+      grid-column-start: 3;
+      grid-column-end: 11;
     }
   }
-
 </style>

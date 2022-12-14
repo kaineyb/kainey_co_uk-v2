@@ -1,4 +1,6 @@
 ---
+import ContinueReading from "../ContinueReading.astro";
+
 const { project, Content } = Astro.props;
 ---
 
@@ -6,42 +8,62 @@ const { project, Content } = Astro.props;
   <a href={`/projects/${project.frontmatter.slug}`}
     ><img class="project__image" src={project.frontmatter.image} alt="" />
   </a>
+  <section class="project-content">
+    <h2>
+      <a href={`/projects/${project.frontmatter.slug}`}
+        >{project.frontmatter.title}</a
+      >
+    </h2>
 
-  <h2>
-    <a href={`/projects/${project.frontmatter.slug}`}
-      >{project.frontmatter.title}</a
-    >
-  </h2>
+    <ul class="project__links">
+      {
+        project.frontmatter.homepage && (
+          <li>
+            <img src="/icons/www.svg" alt="" class="project__icon" />
+            <a href={project.frontmatter.homepage}>Homepage</a>
+          </li>
+        )
+      }
 
-  <ul class="project__links">
-    {
-      project.frontmatter.homepage && (
-        <li>
-          <img src="/icons/www.svg" alt="" class="project__icon" />
-          <a href={project.frontmatter.homepage}>Homepage</a>
-        </li>
-      )
-    }
-
-    {
-      project.frontmatter.repository && (
-        <li>
-          <img src="/icons/github.svg" alt="" class="project__icon" />
-          <a href={project.frontmatter.repository}>Repository</a>
-        </li>
-      )
-    }
-  </ul>
-  {project.frontmatter.excerpt}
-  <p>
-    <a href={`/projects/${project.frontmatter.slug}`}
-      >Continue Reading &raquo;</a
-    >
-  </p>
+      {
+        project.frontmatter.repository && (
+          <li>
+            <img src="/icons/github.svg" alt="" class="project__icon" />
+            <a href={project.frontmatter.repository}>Repository</a>
+          </li>
+        )
+      }
+    </ul>
+    {project.frontmatter.excerpt}
+    <ContinueReading link={`/projects/${project.frontmatter.slug}`} />
+  </section>
 </article>
 
 <style>
   article {
+    background-color: var(--color--black-lighter);
+    border-radius: 0.3rem;
+  }
+  article > a {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  article:hover {
+    box-shadow: 0.3rem 0.3rem var(--color-primary);
+  }
+  article:hover .project__image {
+    filter: grayscale(0%);
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 
   h2 > a {
@@ -71,28 +93,10 @@ const { project, Content } = Astro.props;
   }
 
   .project__image {
-    border-radius: 0.3rem;
-    border: 1px solid var(--color-primary);
-    box-shadow: 0.2rem 0.2rem var(--color-body-lighter);
+    display: block;
+    border-radius: 0.3rem 0.3rem 0 0;
+
     filter: grayscale(50%);
     width: 100%;
-  }
-
-  .project__image:hover {
-    filter: grayscale(0%);
-    box-shadow: 0.2rem 0.2rem var(--color-secondary);
-  }
-
-  /* From 768px and up - Laptops and Tablets */
-  @media screen and (min-width: 768px) {
-    article {
-      flex-basis: 46%;
-    }
-  }
-  /* From 1024px and up - Desktop */
-  @media screen and (min-width: 1024px) {
-    article {
-      flex-basis: 30%;
-    }
   }
 </style>

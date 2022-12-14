@@ -1,4 +1,5 @@
 ---
+const maxPosts = 5;
 import { generateTagHash, TagHashResults } from "../snippets/tags";
 const posts = await Astro.glob("../content/posts/*mdx");
 
@@ -29,14 +30,16 @@ function outputDate(pubDate: string) {
     day: "numeric",
   });
 }
+
+const { footer } = Astro.props;
 ---
 
-<aside>
+<aside class={footer && "footer"}>
   <section>
     <h4>Recent Posts</h4>
     <ul class="blog-aside">
       {
-        nonDraftPosts?.slice(0, 5).map((item) => (
+        nonDraftPosts?.slice(0, maxPosts).map((item) => (
           <li>
             <a href={`/blog/${item.frontmatter.slug}`}>
               <strong>{item.frontmatter.title}</strong>
@@ -59,62 +62,73 @@ function outputDate(pubDate: string) {
       }
     </ul>
   </section>
+</aside>
 
-  <style>
+<style>
+  aside {
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    background-color: var(--color--blackpoint);
+    border: 3px solid var(--color-secondary);
+    box-shadow: 0.3rem 0.3rem var(--color-secondary);
+    height: auto;
+    padding: 1rem;
+  }
+
+  /* For screens bigger that 992px */
+  @media screen and (min-width: 992px) {
     aside {
-      margin: 2rem 0;
-      border-radius: 0.5rem;
-      background-color: var(--color--blackpoint);
-      border: 3px solid var(--color-secondary);
-      box-shadow: 0.3rem 0.3rem var(--color-secondary);
-      height: auto;
-      padding: 1rem;
+      margin: 0;
+      grid-column: 9 / -1;
     }
+  }
 
-    @media screen and (min-width: 1024px) {
-      aside {
-        margin: 0;
-        grid-row-start: 1;
-        grid-column: 9 / -1;
-        /* float: right; */
-      }
+  /* When used as a footer For screens bigger that 992px */
+  @media screen and (min-width: 992px) {
+    aside.footer {
+      margin: 0;
+      margin-top: 5rem;
+      grid-column: 1 / 13;
     }
 
     .blog-aside {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0;
     }
+  }
 
-    .blog-aside li a {
-      width: 100%;
-      display: inline-block;
-      border-radius: 0.5rem;
-      border: 3px solid var(--color-secondary);
-      box-shadow: 0.3rem 0.3rem var(--color-secondary);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background-image: var(--svg-tri-bg);
-    }
+  .blog-aside {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
 
-    .blog-aside li a:hover {
-      background-color: var(--color-highlight);
-      color: var(--color--whitepoint);
-      text-decoration: none;
-    }
+  .blog-aside li a {
+    width: 100%;
+    display: inline-block;
+    border-radius: 0.5rem;
+    border: 3px solid var(--color-secondary);
+    box-shadow: 0.3rem 0.3rem var(--color-secondary);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-image: var(--svg-tri-bg);
+  }
 
-    .blog-aside h4 {
-      font-family: var(--font-body);
-      font-weight: bold;
-    }
+  .blog-aside li a:hover {
+    background-color: var(--color-highlight);
+    color: var(--color--whitepoint);
+    text-decoration: none;
+  }
 
-    .tag-list {
-      padding-left: 0;
-      list-style: none;
-    }
+  .blog-aside h4 {
+    font-family: var(--font-body);
+    font-weight: bold;
+  }
 
-    .tag-list h4 {
-      margin-bottom: 1rem;
-    }
-  </style>
-</aside>
+  .tag-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .tag-list h4 {
+    margin-bottom: 1rem;
+  }
+</style>

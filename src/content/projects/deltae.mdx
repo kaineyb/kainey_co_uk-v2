@@ -1,11 +1,13 @@
 ---
 title: DeltaE
+type: "Python Library"
+tags: ["Python", "PyPi"]
 slug: deltae
 pubDate: 0001-01-02 0:00
 image: https://img.kainey.co.uk/deltae.png
 homepage: https://pypi.org/project/deltae/
 repository: https://github.com/kaineyb/deltae
-excerpt: "Returns a value of colour difference using the '00 or '76 DeltaE formula."
+excerpt: "Colour Difference Calculator using the '00 or '76 DeltaE formula."
 # draft: true
 ---
 
@@ -26,33 +28,25 @@ I chose DeltaE 2000 because I've always liked the science behind colour and ligh
 - Delta E 2000 Colour Difference
 - Delta E 1976 Colour Difference
 
-**Installation:**
+#### Installation (using pip)
 
 ```bash
-pip install deltae
+> pip install deltae
 ```
 
-**Example Usage:**
-
-```bash
-    import deltae
-```
-
-**Takes CIELAB values as a dictionary - example below:**
+#### Example Usage
 
 ```py
+import deltae
+
+# Takes CIELAB values as a dictionary:
 Lab1 = {'L': 50.00, 'a': 2.6772, 'b': -79.7751}
 Lab2 = {'L': 50.00, 'a': 0.00, 'b': -82.7485}
-```
 
-**Get the DeltaE 1976 Formula of 2 Lab Values:**
+# Get the DeltaE 1976 Formula of 2 Lab Values:
+deltae.delta_e_1976(Lab1, Lab2)
 
-```py
-    deltae.delta_e_1976(Lab1, Lab2)
-```
+# Get the DeltaE 2000 Formula of 2 Lab Values:
+deltae.delta_e_2000(Lab1, Lab2)
 
-**Get the DeltaE 2000 Formula of 2 Lab Values:**
-
-```py
-    deltae.delta_e_2000(Lab1, Lab2)
 ```

@@ -1,10 +1,9 @@
 ---
-import BlogHeaderSmall from "../components/blogs/BlogHeaderSmall.astro";
-import BlogTags from "../components/blogs/BlogTags.astro";
-import ContinueReadingLink from "../components/blogs/ContinueReadingLink.astro";
-import Excerpt from "../components/blogs/Excerpt.astro";
-import PostedBy from "../components/blogs/PostedBy.astro";
-import Layout from "../layouts/SideBarLayout.astro";
+import AboutMe from "../components/frontpage/AboutMe.astro";
+import Hero from "../components/frontpage/Hero.astro";
+import Skills from "../components/frontpage/Skills.astro";
+import LatestProjects from "../components/projects/LatestProjects.astro";
+import Layout from "../layouts/Base.astro";
 
 const posts = await Astro.glob("../content/posts/*.mdx");
 const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
@@ -12,39 +11,19 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 
 <Layout title="Welcome">
   <section>
-    <h1>Latest Posts</h1>
-
-    {
-      nonDraftPosts.map((post) => (
-        <article>
-          <BlogHeaderSmall
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            slug={post.frontmatter.slug}
-          />
-          <PostedBy
-            author={post.frontmatter.author}
-            pubDate={post.frontmatter.pubDate}
-          />
-          <BlogTags tags={post.frontmatter.tags} />
-          <Excerpt excerpt={post.frontmatter.excerpt} />
-          <ContinueReadingLink slug={post.frontmatter.slug} />
-        </article>
-      ))
-    }<hr /><a href="#"> View all Blogs &raquo;</a>
+    <Hero />
+    <AboutMe />
+    <Skills />
+    <LatestProjects amount={4} />
   </section>
-
-  <style>
-    @media screen and (min-width: 1024px) {
-      section {
-        grid-column-start: 1;
-        grid-column-end: 9;
-        grid-row-start: 1;
-      }
-    }
-
-    article {
-      margin-bottom: 5rem;
-    }
-  </style>
 </Layout>
+
+<style>
+  @media screen and (min-width: 992px) {
+    section {
+      grid-column-start: 1;
+      grid-column-end: 13;
+      grid-row-start: 1;
+    }
+  }
+</style>

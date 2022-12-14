@@ -3,6 +3,12 @@
 
 /* Used for Body and Headers */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400|Roboto:700|Roboto:900");
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400|Montserrat:700|Montserrat:900");
+@import url("https://fonts.googleapis.com/css?family=Inter:400|Inter:700|Inter:900");
+
+@import url("https://fonts.googleapis.com/css?family=DM Serif Display:400|DM Serif Display:700|DM Serif Display:900");
+@import url("https://fonts.googleapis.com/css?family=DM Serif Text:400|DM Serif Text:700|DM Serif Text:900");
 @import "./normalize.css";
 
 /*  */
@@ -16,9 +22,23 @@
   --color-secondary: hsl(287, 100%, 30%);
   --color-tertiary: hsl(29, 100%, 45%);
   --color-quaternary: hsl(203, 50%, 40%);
-  --color--whitepoint: hsl(0, 0%, 80%);
+  --color--whitepoint: hsl(0, 0%, 90%);
   --color--black-lighter: hsl(0, 0%, 25%);
-  --color--blackpoint: hsl(0, 0%, 16%);
+  --color--blackpoint: hsl(0, 0%, 4%);
+}
+
+/* Break points minus 17px */
+
+:root {
+  --scrollbar-width: 17px;
+  
+  --min-tablet-width: 576px;
+  --min-laptop-width: 992px;
+  --min-desktop-width: 1440px;
+
+  --min-tablet-width-sb: calc(var(--min-tablet-width) - var(var(--scrollbar-width)))
+  --min-laptop-width-sb: calc(var(min-laptop-width) - var(--scrollbar-width));
+  --min-desktop-width-sb: calc(var(--min-desktop-width) - var(--scrollbar-width));
 }
 
 /* Colour Text */
@@ -29,6 +49,10 @@
   --color-body: var(--color--whitepoint);
   --color-headings: var(--color--whitepoint);
   --color-highlight: var(--color-secondary);
+}
+
+:root {
+  --color-link: var(--color-secondary);
 }
 
 /* Top Variables */
@@ -42,8 +66,9 @@
 /* Typeface */
 
 :root {
-  --font-body: "Roboto", sans-serif;
-  --font-headings: "Roboto", sans-serif;
+  --font-body: "Verdana", sans-serif;
+  --font-headings: "Verdana", sans-serif;
+  --font-banner: "Fredoka One", cursive;
 }
 
 *,
@@ -117,7 +142,7 @@ small,
 /* Typography */
 
 a {
-  color: var(--color-secondary);
+  color: var(--color-link);
   text-decoration: none;
 }
 a:hover {

@@ -33,9 +33,12 @@ If we take a look at each array, we can see that both arrays have the same objec
 [
   { id: 1, name: "Bob" },
   { id: 2, name: "Jane" },
-][
-  // array2
-  ({ id: 1, name: "Bob" }, { id: 2, name: "Jane" })
+];
+
+// array2
+[
+  { id: 1, name: "Bob" },
+  { id: 2, name: "Jane" },
 ];
 ```
 
@@ -44,13 +47,13 @@ Why is this happening and why does the below seem to work?
 ```js
 const array1 = [1, 2, 3];
 array2 = [...array1];
-array1[0] = (33)[
-  // array1
-  (33, 2, 3)
-][
-  // array2
-  (1, 2, 3)
-];
+array1[0] = 33;
+
+// array1
+[(33, 2, 3)];
+
+// array2
+[(1, 2, 3)];
 ```
 
 Any ideas? I am going with mutability.
@@ -72,26 +75,43 @@ Well good question.
 Personally the only solution I've seen that is also relatively short. Is using the map method of the Array class.
 
 ```js
-> const array2 = array1.map((item) => ({ ...item }))
+const array2 = array1.map((item) => ({ ...item }));
 ```
 
 We're creating a new object, with the same key value pairs. Therefore it has a new reference and therefore it doesn't change when we update the original.
 
 ```js
-> const array1 = [{id: 1, name: "John"}, {id:2, name: "Jane"}]
-> const array2 = array1.map((item) => ({ ...item }))
+const array1 = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+];
+
+const array2 = array1.map((item) => ({ ...item }));
+
+// array2 is a copy of array1, but with new objects.
 
 > array2
-> [ { id: 1, name: 'John' }, { id: 2, name: 'Jane' } ]
+[
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+];
 
-> array2[0]['name'] = "Bob"
-> 'Bob'
+// lets change array2
+array2[0]["name"] = "Bob";
+
+
+// we can see that array2 has changed and that array1 is unchanged!
+> array2
+[
+  { id: 1, name: "Bob" },
+  { id: 2, name: "Jane" },
+];
 
 > array1
-> [ { id: 1, name: 'John' }, { id: 2, name: 'Jane' } ]
-
-> array2
-> [ { id: 1, name: 'Bob' }, { id: 2, name: 'Jane' } ]
+[
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+];
 ```
 
 And hey, with this code we're still using the spread method right?

@@ -36,10 +36,11 @@ const { links } = Astro.props;
   }
 
   .link-tree a:hover .link-tree__icon {
-    filter: saturate(0%);
+    /* filter: saturate(0%); */
+    /* filter: saturate(100%); */
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 576px) {
     .link-tree li {
       display: inline;
     }

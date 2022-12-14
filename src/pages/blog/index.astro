@@ -1,0 +1,49 @@
+---
+import BlogHeaderSmall from "../../components/blogs/BlogHeaderSmall.astro";
+import BlogTags from "../../components/blogs/BlogTags.astro";
+import ContinueReadingLink from "../../components/blogs/ContinueReadingLink.astro";
+import Excerpt from "../../components/blogs/Excerpt.astro";
+import PostedBy from "../../components/blogs/PostedBy.astro";
+import Layout from "../../layouts/SideBarLayout.astro";
+
+const posts = await Astro.glob("../../content/posts/*.mdx");
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+---
+
+<Layout title="Welcome">
+  <section>
+    <h1>All Blog Posts</h1>
+
+    {
+      nonDraftPosts.map((post) => (
+        <article>
+          <BlogHeaderSmall
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            slug={post.frontmatter.slug}
+          />
+          <PostedBy
+            author={post.frontmatter.author}
+            pubDate={post.frontmatter.pubDate}
+          />
+          <BlogTags tags={post.frontmatter.tags} />
+          <Excerpt excerpt={post.frontmatter.excerpt} />
+          <ContinueReadingLink slug={post.frontmatter.slug} />
+        </article>
+      ))
+    }
+  </section>
+
+  <style>
+    @media screen and (min-width: 992px) {
+      section {
+        grid-column-start: 1;
+        grid-column-end: 9;
+      }
+    }
+
+    article {
+      margin-bottom: 5rem;
+    }
+  </style>
+</Layout>
