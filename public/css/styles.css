@@ -9,6 +9,14 @@
 
 @import url("https://fonts.googleapis.com/css?family=DM Serif Display:400|DM Serif Display:700|DM Serif Display:900");
 @import url("https://fonts.googleapis.com/css?family=DM Serif Text:400|DM Serif Text:700|DM Serif Text:900");
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Figtree:400|Figtree:700|Figtree:900");
+
+
+
+
 @import "./normalize.css";
 
 /*  */
@@ -66,9 +74,15 @@
 /* Typeface */
 
 :root {
-  --font-body: "Verdana", sans-serif;
-  --font-headings: "Verdana", sans-serif;
+  --font-body: "Figtree", sans-serif;
+  --font-headings: "Figtree", sans-serif;
   --font-banner: "Fredoka One", cursive;
+}
+
+:root {
+  --size-header: 3rem; 
+  --size-body: 3rem; 
+  --size-support: 3rem; 
 }
 
 *,
@@ -111,27 +125,29 @@ h5 {
 
 h1 {
   margin-top: 0;
-  font-size: 3.052rem;
+  font-size: 1.802rem;
 }
+
+
 
 h2 {
   margin-top: 0;
-  font-size: 2.441rem;
+  font-size: 1.602rem;
 }
 
 h3 {
   margin-top: 0;
-  font-size: 1.953rem;
+  font-size: 1.424rem;
 }
 
 h4 {
   margin-top: 0;
-  font-size: 1.563rem;
+  font-size: 1.266rem;
 }
 
 h5 {
   margin-top: 0;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 small,
@@ -163,11 +179,13 @@ h1 {
   border-bottom: 0.3rem solid var(--color-secondary);
 }
 
+
 pre.astro-code {
   padding: 1rem;
   border-radius: 1rem;
   border: 1px solid var(--color-primary);
   box-shadow: 5px 5px var(--color-primary);
+  overflow: hidden;
 }
 
 blockquote {
@@ -176,4 +194,15 @@ blockquote {
   background-color: var(--color--black-lighter);
   padding: 2px 5px 2px 25px;
   margin: auto;
+}
+
+
+/* Section Single */
+
+ /* For Desktops  */
+ @media screen and (min-width: 992px) {
+  section.single {
+    width: 600px;
+    margin: 0 auto;
+  }
 }

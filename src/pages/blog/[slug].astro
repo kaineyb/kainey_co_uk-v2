@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Base.astro";
+import Layout from "../../layouts/Single.astro";
 
 import BlogHeader from "../../components/blogs/BlogHeader.astro";
 import BlogTags from "../../components/blogs/BlogTags.astro";
@@ -40,7 +40,7 @@ const { Content, frontmatter } = post;
 ---
 
 <Layout title={frontmatter.title}>
-  <section>
+  <section class="single">
     <BlogHeader
       title={frontmatter.title}
       description={frontmatter.description}
@@ -48,15 +48,8 @@ const { Content, frontmatter } = post;
     <PostedBy author={frontmatter.author} pubDate={frontmatter.pubDate} />
     <BlogTags tags={frontmatter.tags} />
     <Content />
+    <RecentPosts footer />
   </section>
-  <RecentPosts footer />
 </Layout>
 
-<style>
-  @media screen and (min-width: 992px) {
-    section {
-      grid-column-start: 3;
-      grid-column-end: 11;
-    }
-  }
-</style>
+<style></style>
