@@ -7,64 +7,59 @@
 
 // const { href, title, body } = Astro.props;
 
-import NavBar from "./NavBar.astro";
+import Hamburger from "./Hamburger.astro";
+import HeaderTitle from "./HeaderTitle.astro";
+import Navigation from "./Navigation.astro";
 ---
 
-<header class="header-main">
-  <nav class="nav-main">
-    <a class="nav__brand" href="/">Kainey.co.uk</a>
-    <NavBar />
-  </nav>
+<header>
+  <div class="outer-header">
+    <div class="inner-header">
+      <div class="hamburger"><Hamburger /></div>
+      <div class="title"><HeaderTitle /></div>
+    </div>
+
+    <Navigation />
+  </div>
 </header>
 
 <style>
-  .header-main {
-    outline: 1px solid gold;
-    height: min-content;
+  header {
     background-image: var(--svg-tri-bg);
     background-color: var(--color--blackpoint);
-    width: 100%;
     background-attachment: fixed;
-    background-size: cover;
+
     /* background by SVGBackgrounds.com */
   }
 
-  .header-main .nav__brand {
-    margin: 0;
-    color: var(--color--whitepoint);
-    display: block;
-    font-family: var(--font-banner);
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 0.2rem 0.2rem #333;
+  .outer-header {
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
-  .header-main .nav__brand:hover {
-    text-shadow: 0.2rem 0.2rem var(--color-highlight);
-    text-decoration: none;
+  .inner-header {
+    padding: 2rem;
+    display: flex;
+  }
+
+  .hamburger {
+    flex: 0 0 auto;
+  }
+
+  .title {
+    /* outline: 1px solid violet; */
+    justify-self: center;
+    align-self: center;
+    flex: 1 1 auto;
   }
 
   @media screen and (min-width: 576px) {
-    .header-main .nav__brand {
-      font-size: 3rem;
-      padding-right: 1rem;
-      display: inline-block;
-      text-align: left;
-      margin: 18px 1rem;
-      border-bottom: 0;
-      text-shadow: 0.3rem 0.3rem #333;
+    .outer-header {
+      display: flex;
+      justify-content: space-between;
     }
-
-    .header-main .nav__brand:hover {
-      text-shadow: 0.3rem 0.3rem var(--color-highlight);
+    .inner-header {
+      padding: 0rem 2rem;
     }
-  }
-
-  /* Navigation */
-
-  .nav-main {
-    margin: 0 auto;
-    max-width: 1024px;
   }
 </style>
