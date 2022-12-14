@@ -10,9 +10,12 @@ import Layout from "../../layouts/Base.astro";
   </section>
 
   <style>
-    section {
-      grid-column-start: 1;
-      grid-column-end: 13;
+    @media screen and (min-width: 992px) {
+      section {
+        grid-column-start: 1;
+        grid-column-end: 13;
+        grid-row-start: 1;
+      }
     }
   </style>
 </Layout>
