@@ -7,7 +7,6 @@ const title = "Kaine Bruce";
 
 <style>
   div {
-    text-shadow: 0.1rem 0.1rem var(--color-black-lighter);
     height: 35px;
     font-size: 1.5rem;
     font-family: var(--font-banner);
@@ -15,14 +14,43 @@ const title = "Kaine Bruce";
     justify-content: end;
     align-items: center;
   }
-
+  /* Background Gradient */
   div a {
-    color: var(--color-primary);
+    color: transparent;
+    background: linear-gradient(45deg, #000000, #ffffff, #ff0000, #0027ff);
+    background: linear-gradient(
+      45deg,
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-tertiary)
+    );
+    background-size: 800% 800%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: AnimationName 30s ease infinite;
   }
 
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 51%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* div a {
+    color: var(--color-primary);
+  } */
+
   div:hover a {
-    text-shadow: 0.1rem 0.1rem var(--color-black-lighter);
+    /* text-shadow: 0.1rem 0.1rem var(--color-black-lighter); */
     /* color: black; */
+    /* color: tra; */
     text-decoration: none;
     animation: tada; /* referring directly to the animation's @keyframe declaration */
     animation-duration: 1s; /* don't forget to set a duration! */
