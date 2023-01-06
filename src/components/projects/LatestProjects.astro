@@ -1,5 +1,6 @@
 ---
 import MiniProject from "../../components/projects/MiniProject.astro";
+import MoreProjectsButton from "./MoreProjectsButton.astro";
 
 const projects = await Astro.glob("../../content/projects/*.mdx");
 let nonDraftPosts = projects.filter((project) => !project.frontmatter.draft);
@@ -25,7 +26,7 @@ const { amount } = Astro.props;
     }
   </section>
 
-  {amount && <a href="#">More Projects...</a>}
+  {amount && <MoreProjectsButton />}
 </section>
 
 <style>

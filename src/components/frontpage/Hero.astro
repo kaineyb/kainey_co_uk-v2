@@ -1,8 +1,81 @@
 ---
+import "animate.css";
+import { config } from "../../../config";
+import TitleCarousel from "./TitleCarousel.astro";
 ---
 
 <section>
-  <p>Kaine Bruce</p>
-  <p>Brentwood, Essex</p>
-  <p>LinkedIn | GitHub</p>
+  <p class="name">Kaine Bruce</p>
+  <p class="address">Brentwood, Essex</p>
+  <p class="links">
+    <a href={config.linkedInLink}>LinkedIn</a><a href={config.gitHubLink}
+      >GitHub</a
+    >
+  </p>
+  <TitleCarousel />
 </section>
+
+<style>
+  section {
+    padding: 5rem 0rem;
+    /* outline: 1px solid white; */
+    /* padding: 1rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  section * {
+    margin: 0 0;
+    min-height: fit-content;
+    /* outline: 1px solid gold; */
+    align-self: center;
+  }
+
+  p.name {
+    /* color: purple; */
+    font-weight: bold;
+    line-height: 2.8rem;
+    font-size: 2.7rem;
+  }
+
+  p.address {
+    /* color: aquamarine; */
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  p.links {
+    /* color: brown; */
+    display: flex;
+    gap: 1rem;
+    font-size: 1.3rem;
+  }
+
+  p.links a {
+    /* font-size: smaller; */
+    background-color: var(--color-primary);
+    background-image: var(--svg-tri-bg);
+    /* border-radius: 0.5rem; */
+    border-radius: 0.5rem 0rem;
+    border: 3px solid black;
+    /* box-shadow: 0.3rem 0.3rem var(--color-primary); */
+    color: var(--color-body-darker);
+    display: block;
+    font-weight: bold;
+    height: 2rem;
+    padding: 1rem;
+    width: 100%;
+    line-height: 0;
+  }
+  p.links a:hover {
+    color: var(--color-body-darker);
+    /* background-color: var(--color-highlight); */
+    box-shadow: 0.3rem 0.3rem var(--color-highlight);
+    /* border: 3px solid var(--color--whitepoint); */
+    text-decoration: none;
+    animation: pulse; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: infinite;
+  }
+</style>

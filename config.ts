@@ -8,6 +8,10 @@ config.email = "kaineyb@gmail.com";
 config.name = "Kaine Bruce";
 config.copyRightYear = 2022;
 
+// Various Links
+config.gitHubLink = "https://github.com/kaineyb";
+config.linkedInLink = "https://www.linkedin.com/in/kaine-bruce-a48a0b36/";
+
 // Nav Links
 config.navLinks.push(new NavLink("Home", "/", { navBar: false, footer: true }));
 config.navLinks.push(new NavLink("Projects", "/projects"));

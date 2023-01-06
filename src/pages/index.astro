@@ -1,18 +1,18 @@
 ---
-import AboutMe from "../components/frontpage/AboutMe.astro";
+import ElevatorPitch from "../components/frontpage/ElevatorPitch.astro";
 import Hero from "../components/frontpage/Hero.astro";
 import Skills from "../components/frontpage/Skills.astro";
 import LatestProjects from "../components/projects/LatestProjects.astro";
 import Layout from "../layouts/Base.astro";
 
-const posts = await Astro.glob("../content/posts/*.mdx");
-const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+// const posts = await Astro.glob("../content/posts/*.mdx");
+// const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
 <Layout title="Welcome">
   <section>
     <Hero />
-    <AboutMe />
+    <ElevatorPitch />
     <Skills />
     <LatestProjects amount={4} />
   </section>
