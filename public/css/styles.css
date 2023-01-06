@@ -1,29 +1,5 @@
-/* Used for the Kainey.co.uk Header */
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-
 /* Used for Body and Headers */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400|Roboto:700|Roboto:900");
-
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400|Montserrat:700|Montserrat:900");
-@import url("https://fonts.googleapis.com/css?family=Inter:400|Inter:700|Inter:900");
-
-@import url("https://fonts.googleapis.com/css?family=DM Serif Display:400|DM Serif Display:700|DM Serif Display:900");
-@import url("https://fonts.googleapis.com/css?family=DM Serif Text:400|DM Serif Text:700|DM Serif Text:900");
-
-
-
 @import url("https://fonts.googleapis.com/css?family=Figtree:400|Figtree:700|Figtree:900");
-
-
-/* Test for Banners */
-@import url("https://fonts.googleapis.com/css?family=Press Start 2P:400|Press Start 2P:700|Press Start 2P:900");
-@import url("https://fonts.googleapis.com/css?family=Audiowide:400|Audiowide:700|Audiowide:900");
-@import url("https://fonts.googleapis.com/css?family=Black Ops One:400|Black Ops One:700|Black Ops One:900");
-@import url("https://fonts.googleapis.com/css?family=Sirin Stencil:400|Sirin Stencil:700|Sirin Stencil:900");
-
-
-
-
 
 @import "./normalize.css";
 
