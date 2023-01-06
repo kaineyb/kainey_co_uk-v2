@@ -15,6 +15,14 @@
 @import url("https://fonts.googleapis.com/css?family=Figtree:400|Figtree:700|Figtree:900");
 
 
+/* Test for Banners */
+@import url("https://fonts.googleapis.com/css?family=Press Start 2P:400|Press Start 2P:700|Press Start 2P:900");
+@import url("https://fonts.googleapis.com/css?family=Audiowide:400|Audiowide:700|Audiowide:900");
+@import url("https://fonts.googleapis.com/css?family=Black Ops One:400|Black Ops One:700|Black Ops One:900");
+@import url("https://fonts.googleapis.com/css?family=Sirin Stencil:400|Sirin Stencil:700|Sirin Stencil:900");
+
+
+
 
 
 @import "./normalize.css";
@@ -97,7 +105,8 @@
 :root {
   --font-body: "Figtree", sans-serif;
   --font-headings: "Figtree", sans-serif;
-  --font-banner: "Fredoka One", cursive;
+  --font-banner: "Figtree", sans-serif;
+  /* --font-banner: "Fredoka One", cursive; */
 }
 
 :root {
