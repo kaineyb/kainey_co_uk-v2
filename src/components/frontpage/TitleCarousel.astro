@@ -18,8 +18,8 @@ const smartTitles = [...titles, titles[0]];
 
 <style>
   :root {
-    --w: 240;
-    --width: 240px;
+    --w: 207;
+    --width: 208px;
     --speed: 2s;
   }
 
@@ -41,7 +41,8 @@ const smartTitles = [...titles, titles[0]];
     /* width: var(--width); */
     margin: auto;
     font-size: 1rem;
-    background: var(--color--black-lighter);
+    background-color: var(--color-black);
+    /* background-image: var(--svg-tri-bg); */
     border-radius: 0.5rem 0rem;
     /* color: #fff; */
     overflow: hidden;
@@ -91,12 +92,13 @@ const smartTitles = [...titles, titles[0]];
     }
   }
 
-  /* @media screen and (min-width: 576px) {
+  @media screen and (min-width: 576px) {
     :root {
-    --w: 450;
-    --width: 450px;
+      --w: 300;
+      --width: 300px;
+    }
+    .g-container {
+      font-size: 1rem;
+    }
   }
-  .g-container {
-    font-size: 2rem;
-  } */
 </style>
