@@ -7,13 +7,13 @@ import TitleCarousel from "./TitleCarousel.astro";
 <section>
   <img src="/me/me.jfif" />
   <p class="name">Kaine Bruce</p>
+  <TitleCarousel />
   <p class="address">Brentwood, Essex</p>
   <p class="links">
     <a href={config.linkedInLink}>LinkedIn</a><a href={config.gitHubLink}
       >GitHub</a
     >
   </p>
-  <TitleCarousel />
 </section>
 
 <style>
@@ -61,6 +61,7 @@ import TitleCarousel from "./TitleCarousel.astro";
   }
 
   p.address {
+    font-weight: 700;
     /* color: aquamarine; */
     /* color: var(--color-black-lighter); */
     animation: bounceInLeft; /* referring directly to the animation's @keyframe declaration */
@@ -71,6 +72,9 @@ import TitleCarousel from "./TitleCarousel.astro";
   }
 
   p.links {
+    border-top: 0.3rem solid var(--color-secondary);
+    padding-top: 1rem;
+
     /* color: brown; */
     animation: bounceInRight; /* referring directly to the animation's @keyframe declaration */
     animation-duration: 1s; /* don't forget to set a duration! */
@@ -78,6 +82,7 @@ import TitleCarousel from "./TitleCarousel.astro";
     display: flex;
     gap: 1rem;
     font-size: 1rem;
+    /* text-align: center; */
   }
 
   p.links a {
@@ -95,6 +100,7 @@ import TitleCarousel from "./TitleCarousel.astro";
     padding: 1rem;
     width: 100%;
     line-height: 0;
+    text-align: center;
   }
   p.links a:hover {
     color: var(--color-body-darker);
@@ -105,6 +111,14 @@ import TitleCarousel from "./TitleCarousel.astro";
     animation: pulse; /* referring directly to the animation's @keyframe declaration */
     animation-duration: 1s; /* don't forget to set a duration! */
     animation-iteration-count: infinite;
+  }
+
+  p.links a:hover::before {
+    content: ">";
+  }
+
+  p.links a:hover::after {
+    content: "<";
   }
 
   @media screen and (min-width: 576px) {
