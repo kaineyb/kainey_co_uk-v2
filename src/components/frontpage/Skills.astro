@@ -4,11 +4,12 @@ const data = [
     name: "Languages",
     data: [
       "Python",
-      "Typescript & JavaScript",
+      "JavaScript",
+      "Typescript",
       "HTML & CSS",
       "SQL",
-      "C",
-      "PHP",
+      // "C",
+      // "PHP",
     ],
   },
   { name: "Frameworks", data: ["Django", "Flask", "React", "Astro"] },
@@ -64,9 +65,12 @@ const data = [
   }
 
   .skill {
-    background-color: var(--color-black-lighter);
+    background-image: var(--svg-tri-bg);
+    background-color: var(--color-black-mid);
+    border-radius: 0.5rem 0;
+    /* background-color: var(--color-black-lighter); */
     flex: 1 1 100%;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   /* Tablets and Greater */

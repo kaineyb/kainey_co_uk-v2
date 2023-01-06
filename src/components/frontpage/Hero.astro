@@ -5,6 +5,7 @@ import TitleCarousel from "./TitleCarousel.astro";
 ---
 
 <section>
+  <img src="/me/me.jfif" />
   <p class="name">Kaine Bruce</p>
   <p class="address">Brentwood, Essex</p>
   <p class="links">
@@ -22,7 +23,7 @@ import TitleCarousel from "./TitleCarousel.astro";
     /* background-attachment: fixed; */
 
     /* background by SVGBackgrounds.com */
-    padding: 5rem 1rem;
+    padding: 10rem 1rem;
     /* outline: 1px solid white; */
     /* padding: 1rem; */
     display: flex;
@@ -39,6 +40,13 @@ import TitleCarousel from "./TitleCarousel.astro";
     align-self: center;
   }
 
+  section img {
+    box-shadow: 0 0 3px 0px blue inset, 0 0 1px 0px blue;
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+
   p.name {
     /* color: purple; */
     font-weight: bold;
@@ -48,6 +56,7 @@ import TitleCarousel from "./TitleCarousel.astro";
 
   p.address {
     /* color: aquamarine; */
+    /* color: var(--color-black-lighter); */
     font-size: 1.6rem;
     line-height: 1.6rem;
   }
