@@ -1,4 +1,5 @@
 ---
+import "animate.css";
 const title = "Kaine Bruce";
 ---
 
@@ -6,6 +7,7 @@ const title = "Kaine Bruce";
 
 <style>
   div {
+    text-shadow: 0.1rem 0.1rem var(--color-black-lighter);
     height: 35px;
     font-size: 1.5rem;
     font-family: var(--font-banner);
@@ -14,9 +16,17 @@ const title = "Kaine Bruce";
     align-items: center;
   }
 
+  div a {
+    color: var(--color-primary);
+  }
+
   div:hover a {
     text-shadow: 0.1rem 0.1rem var(--color-black-lighter);
+    /* color: black; */
     text-decoration: none;
+    animation: tada; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: 1;
   }
 
   @media screen and (min-width: 576px) {

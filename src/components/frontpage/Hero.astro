@@ -45,10 +45,16 @@ import TitleCarousel from "./TitleCarousel.astro";
     width: 150px;
     border-radius: 50%;
     border: 3px solid white;
+    animation: rollIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: 1;
   }
 
   p.name {
     /* color: purple; */
+    animation: bounceInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: 1;
     font-weight: bold;
     line-height: 2.35rem;
     font-size: 2.35rem;
@@ -57,12 +63,18 @@ import TitleCarousel from "./TitleCarousel.astro";
   p.address {
     /* color: aquamarine; */
     /* color: var(--color-black-lighter); */
+    animation: bounceInLeft; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: 1;
     font-size: 1.6rem;
     line-height: 1.6rem;
   }
 
   p.links {
     /* color: brown; */
+    animation: bounceInRight; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: 1;
     display: flex;
     gap: 1rem;
     font-size: 1rem;
