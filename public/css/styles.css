@@ -140,6 +140,7 @@ h1 {
 h2 {
   margin-top: 0;
   font-size: 1.602rem;
+  border-bottom: 0.1rem solid var(--color-secondary);
 }
 
 h3 {
