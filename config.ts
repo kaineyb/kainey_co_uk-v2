@@ -6,7 +6,7 @@ export const config = new Config();
 // Year
 config.email = "kaineyb@gmail.com";
 config.name = "Kaine Bruce";
-config.copyRightYear = 2022;
+config.copyRightYear = 2023;
 
 // Various Links
 config.gitHubLink = "https://github.com/kaineyb";

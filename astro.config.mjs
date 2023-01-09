@@ -18,6 +18,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "dracula",
     },
+    // syntaxHighlight: "shiki",
   },
   integrations: [react(), mdx()],
   output: "server",
