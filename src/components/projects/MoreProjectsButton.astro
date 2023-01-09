@@ -1,6 +1,13 @@
 ---
+import Button from "../Button.astro";
 ---
 
-<a href="/projects">More Projects...</a>
+<hr />
+<div><Button link={"/projects"} label={"» All Projects..."} /></div>
 
-<style></style>
+<style>
+  div {
+    margin-top: 1rem;
+    width: max-content;
+  }
+</style>

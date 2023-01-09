@@ -15,9 +15,10 @@
   --color-tertiary: hsl(29, 100%, 45%);
   --color-quaternary: hsl(203, 50%, 40%);
   --color-white: hsl(0, 0%, 90%);
-  --color-black-lighter: hsl(0, 0%, 25%);
-  --color-black-mid: hsl(0, 0%, 10%);
   --color-black: hsl(0, 0%, 4%);
+  --color-black-mid: hsl(0, 0%, 10%);
+  --color-black-lighter: hsl(0, 0%, 25%);
+  --color-black-lightest: hsl(0, 0%, 35%);
 }
 
 
@@ -59,7 +60,7 @@
 }
 
 :root {
-  --color-link: var(--color-secondary);
+  --color-link: var(--color-primary);
 }
 
 /* Top Variables */

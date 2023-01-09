@@ -1,6 +1,7 @@
 ---
 import "animate.css";
 import { config } from "../../../config";
+import Button from "../Button.astro";
 import TitleCarousel from "./TitleCarousel.astro";
 ---
 
@@ -10,9 +11,8 @@ import TitleCarousel from "./TitleCarousel.astro";
   <TitleCarousel />
   <p class="address">Brentwood, Essex</p>
   <p class="links">
-    <a href={config.linkedInLink}>LinkedIn</a><a href={config.gitHubLink}
-      >GitHub</a
-    >
+    <Button link={config.linkedInLink} label={"LinkedIn"} />
+    <Button link={config.gitHubLink} label={"GitHub"} />
   </p>
 </section>
 
@@ -23,8 +23,7 @@ import TitleCarousel from "./TitleCarousel.astro";
     background-attachment: scroll;
     background-size: cover;
     background-position: 50% 50%;
-
-    padding: 10rem 1rem;
+    padding: 4rem 1rem;
     /* outline: 1px solid white; */
     /* padding: 1rem; */
     display: flex;
@@ -86,35 +85,10 @@ import TitleCarousel from "./TitleCarousel.astro";
     /* text-align: center; */
   }
 
-  p.links a {
-    /* font-size: smaller; */
-    background-color: var(--color-primary);
-    background-image: var(--svg-tri-bg);
-    /* border-radius: 0.5rem; */
-    border-radius: 0.5rem 0rem;
-    border: 3px solid black;
-    /* box-shadow: 0.3rem 0.3rem var(--color-primary); */
-    color: var(--color-body-darker);
-    display: block;
-    font-weight: bold;
-    height: 2rem;
-    padding: 1rem;
-    width: 100%;
-    line-height: 0;
-    text-align: center;
-  }
-  p.links a:hover {
-    color: var(--color-body-darker);
-    /* background-color: var(--color-highlight); */
-    box-shadow: 0.3rem 0.3rem var(--color-highlight);
-    /* border: 3px solid var(--color-white); */
-    text-decoration: none;
-    animation: pulse; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1s; /* don't forget to set a duration! */
-    animation-iteration-count: infinite;
-  }
-
   @media screen and (min-width: 576px) {
+    section {
+      padding: 10rem 1rem;
+    }
     p.name {
       line-height: 3.2rem;
       font-size: 3.2rem;
