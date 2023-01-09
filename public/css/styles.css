@@ -205,12 +205,3 @@ blockquote {
 }
 
 
-/* Section Single */
-
- /* For Desktops  */
- @media screen and (min-width: 992px) {
-  section.single {
-    width: 600px;
-    margin: 0 auto;
-  }
-}

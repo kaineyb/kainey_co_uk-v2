@@ -9,3 +9,16 @@ const { frontmatter, title } = Astro.props;
     <slot />
   </section>
 </Layout>
+
+<style>
+  /* Section Single */
+
+  /* For Desktops  */
+  @media screen and (min-width: 992px) {
+    section.single {
+      /* 30 - 50em  */
+      width: 40em;
+      margin: 0 auto;
+    }
+  }
+</style>
