@@ -48,19 +48,15 @@ const { project, Content } = Astro.props;
 
 <style>
   article {
-    background-color: var(--color-black-lighter);
-    /* background-color: var(--color-black-mid); */
+    background-color: var(--color-black-mid);
     border-radius: 0.3rem;
-    /* background-image: var(--svg-tri-bg); */
   }
 
   h2 {
-    /* padding-bottom: 1rem; */
     border-bottom: 0;
   }
 
   div.flex {
-    /* outline: 1px solid gold; */
     height: 100%;
     display: flex;
     gap: 1rem;
@@ -68,24 +64,16 @@ const { project, Content } = Astro.props;
     justify-content: flex-start;
   }
 
-  div.flex > * {
-    /* outline: 1px solid green; */
-  }
-
   div.footer {
     margin-top: auto;
   }
 
-  article:hover {
-    /* box-shadow: 0.3rem 0.3rem var(--color-primary); */
-  }
   article:hover .project__image {
   }
 
   .image_container:hover .project__image {
     opacity: 0.5;
     filter: grayscale(100%);
-    /* background-color: var(--color-primary); */
   }
 
   .image_container:hover {
@@ -115,30 +103,18 @@ const { project, Content } = Astro.props;
     padding-left: 0;
     list-style-type: none;
   }
-  .project__links li {
-    padding-left: 0px;
-  }
 
   .project__links .project__icon {
-    fill: var(--color-secondary);
     margin-right: 10px;
     padding: 1px;
-    stroke: var(--color-secondary);
     vertical-align: middle;
     width: 1.5rem;
   }
 
   .project__image {
-    gap: 0;
     display: block;
     border-radius: 0.3rem 0.3rem 0 0;
     background-size: cover;
-
-    /* filter: grayscale(70%); */
     width: 100%;
-  }
-
-  .image__link {
-    line-height: 0;
   }
 </style>

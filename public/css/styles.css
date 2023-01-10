@@ -29,10 +29,11 @@
   --color-secondary: #780099;
   --color-tertiary: #e66f00;
   --color-quaternary: #337299;
-    --color-white: #e6e6e6;
-  --color-black-lighter: #404040;
-  --color-black-mid: #1a1a1a;
+  --color-white: #e6e6e6;
   --color-black: #0a0a0a;
+  --color-black-mid: #1a1a1a;
+  --color-black-lighter: #404040;
+  --color-black-lightest: #595959;
 } */
 
 /* Break points minus 17px */
@@ -111,11 +112,11 @@ html {
 
 body {
   font-family: var(--font-body);
-  line-height: 1.75;
+  line-height: 1.75rem;
 }
 
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
 }
 
 h1,
@@ -123,42 +124,48 @@ h2,
 h3,
 h4,
 h5 {
-  color: var(--color-headings);
-  margin: 3rem 0 1.38rem;
   font-family: var(--font-headings);
+  color: var(--color-headings);
+  margin: 0 0 1.38rem;
   font-weight: 900;
-  line-height: 1.3;
+  /* line-height: 1.3; */
 }
 
 h1 {
-  margin-top: 0;
-  line-height: 2.2rem;
-  /* margin-bottom: 5rem; */
+  /* outline: 1px blue solid; */
+  border-bottom: 0.3rem solid var(--color-secondary);
   font-size: 1.802rem;
+  line-height: 2.2rem;
+  margin-bottom: 2.2rem;
 }
 
-
-
 h2 {
-  /* margin-bottom: 2rem; */
-  margin-top: 0;
+  /* border-bottom: 0.1rem solid var(--color-secondary); */
   font-size: 1.602rem;
-  border-bottom: 0.1rem solid var(--color-secondary);
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 h3 {
-  margin-top: 0;
   font-size: 1.424rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 h4 {
-  margin-top: 0;
   font-size: 1.266rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 h5 {
-  margin-top: 0;
   font-size: 1.125rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 small,
@@ -186,25 +193,38 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  border-bottom: 0.3rem solid var(--color-secondary);
-}
-
 
 pre.astro-code {
   padding: 1rem;
-  border-radius: 1rem;
-  border: 1px solid var(--color-primary);
-  box-shadow: 5px 5px var(--color-primary);
-  overflow: hidden;
+  overflow: hidden; 
+  margin-bottom: 1.75rem; /* p line height */
+  /* Style: */
+  border-radius: 0.3rem;
+  border: 1px solid var(--color-black);
+  /* box-shadow: 2px 2px var(--color-black); */
 }
 
 blockquote {
-  border-radius: 5px 0 0 5px;
-  border-left: 10px solid var(--color-primary);
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-left: 0.5rem solid var(--color-primary);
   background-color: var(--color-black-lighter);
-  padding: 2px 5px 2px 25px;
+  padding: 1rem;
   margin: auto;
 }
 
+blockquote > p {
+  margin: 0;
+}
 
+/* Use below to change colour of Black SVGs */
+/* https://codepen.io/sosuke/pen/Pjoqqp */
+
+/* Below is --color-black-lightest: hsl(0, 0%, 35%); as HEX converted  */
+
+.project__icon {
+  filter: invert(34%) sepia(0%) saturate(15%) hue-rotate(259deg) brightness(100%) contrast(96%);
+}
+
+.link-tree__icon {
+  filter: invert(34%) sepia(0%) saturate(15%) hue-rotate(259deg) brightness(100%) contrast(96%);
+}
