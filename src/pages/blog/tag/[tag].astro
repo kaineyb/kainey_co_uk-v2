@@ -1,9 +1,5 @@
 ---
-import BlogHeaderSmall from "../../../components/blogs/BlogHeaderSmall.astro";
-import BlogTags from "../../../components/blogs/BlogTags.astro";
-import ContinueReadingLink from "../../../components/blogs/ContinueReadingLink.astro";
-import Excerpt from "../../../components/blogs/Excerpt.astro";
-import PostedBy from "../../../components/blogs/PostedBy.astro";
+import MiniBlog from "../../../components/blogs/MiniBlog.astro";
 import Layout from "../../../layouts/SideBarLayout.astro";
 import { toTitleCase } from "../../../snippets/case";
 import { generateTagArray } from "../../../snippets/tags";
@@ -53,24 +49,7 @@ const taggedPosts = nonDraftPosts.filter((post) =>
 <Layout title={`All Blogs tagged with: ${toTitleCase(tag)}`}>
   <section>
     <h1>All Blogs tagged with: {toTitleCase(tag)}</h1>
-    {
-      taggedPosts.map((post) => (
-        <article>
-          <BlogHeaderSmall
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            slug={post.frontmatter.slug}
-          />
-          <PostedBy
-            author={post.frontmatter.author}
-            pubDate={post.frontmatter.pubDate}
-          />
-          <BlogTags tags={post.frontmatter.tags} />
-          <Excerpt excerpt={post.frontmatter.excerpt} />
-          <ContinueReadingLink slug={post.frontmatter.slug} />
-        </article>
-      ))
-    }
+    {taggedPosts.map((post) => <MiniBlog post={post} />)}
   </section>
 </Layout>
 
