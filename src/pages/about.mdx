@@ -2,9 +2,6 @@
 title: About
 layout: "../layouts/Single.astro"
 
-h1: "About"
-h2: "Me, Myself, and I."
-h3: Hey, I am Kaine, I live in Essex in the UK. I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
 linkTree:
   [
     {
@@ -27,13 +24,11 @@ linkTree:
 
 import LinkTree from "../components/about/LinkTree.astro";
 
-# {frontmatter.title}
+# About
 
-## {frontmatter.h2}
+### Me, Myself, and I.
 
-### Hey, I am Kaine, I live in Essex in the UK.
-
-#### I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
+### Hey, I am Kaine, I live in Essex in the UK. I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
 
 <LinkTree links={frontmatter.linkTree} />
 

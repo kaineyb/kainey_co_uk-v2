@@ -6,21 +6,21 @@ const { links } = Astro.props;
   {
     links.map((link: { link: string; img: string; label: string }) => (
       <li>
-        <a href={link.link}>
-          <img src={link.img} class="link-tree__icon" />
-          {link.label}
-        </a>
+        <img src={link.img} class="link-tree__icon" />
+        <a href={link.link}>{link.label}</a>
       </li>
     ))
   }
 </ul>
 <style>
-  ul.link-tree {
-    border-top: 0.1rem solid var(--color-headings);
-    border-bottom: 0.1rem solid var(--color-headings);
-    padding: 0.5rem 0 0.5rem 0;
-    padding-left: 0;
+  .link-tree {
+    background-color: var(--color-black-mid-plus);
+    background-image: var(--svg-tri-bg);
+    border: 0.1rem solid var(--color-black-lighter);
+    padding: 0.5rem;
     list-style: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .link-tree a {
@@ -28,27 +28,29 @@ const { links } = Astro.props;
     text-decoration: none;
   }
 
+  .link-tree a:hover {
+    /* color: var(--color-secondary); */
+    text-decoration: underline;
+  }
+
   .link-tree__icon {
     width: 24px;
     margin-bottom: -6px;
   }
 
-  .link-tree a:hover .link-tree__icon {
-    /* filter: saturate(0%); */
-    /* filter: saturate(100%); */
-  }
-
   @media screen and (min-width: 576px) {
-    .link-tree li {
-      display: inline;
+    .link-tree {
+      flex-direction: row;
+      gap: 1rem;
     }
 
-    .link-tree li::after {
-      content: " / ";
+    li {
+      border-right: 1px solid var(--color-black-lighter);
+      padding-right: 1rem;
     }
 
-    .link-tree li:last-of-type:after {
-      content: "";
+    li:last-of-type {
+      border: 0;
     }
   }
 </style>
