@@ -25,16 +25,15 @@ tagArray.sort((a, b) => {
 
 function outputDate(pubDate: string) {
   return new Date(pubDate).toLocaleDateString([], {
-    year: "2-digit",
+    year: "numeric",
     month: "short",
     day: "numeric",
+    weekday: "short",
   });
 }
-
-const { footer } = Astro.props;
 ---
 
-<aside class={footer && "footer"}>
+<aside>
   <section>
     <h4>Recent Posts</h4>
     <ul class="blog-aside">
@@ -43,7 +42,7 @@ const { footer } = Astro.props;
           <li>
             <a href={`/blog/${item.frontmatter.slug}`}>
               <strong>{item.frontmatter.title}</strong>
-              <br /> Posted: {outputDate(item.frontmatter.pubDate)}
+              <br /> {outputDate(item.frontmatter.pubDate)}
             </a>
           </li>
         ))
@@ -55,8 +54,11 @@ const { footer } = Astro.props;
       {
         tagArray?.map((tag) => (
           <li>
-            <a href={`/blog/tag/${tag.name.toLowerCase()}`}>{tag.name}</a> -
-            {tag.count} Posts
+            <a href={`/blog/tag/${tag.name.toLowerCase()}`}>{tag.name}</a>
+            <span class="tag-badge">
+              {tag.count}{" "}
+              {(tag.count >= 2 && "Posts") || (tag.count === 1 && "Post")}
+            </span>
           </li>
         ))
       }
@@ -65,34 +67,25 @@ const { footer } = Astro.props;
 </aside>
 
 <style>
+  h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    border-bottom: 1px solid var(--color-black-lighter);
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
   aside {
-    margin: 2rem 0;
+    border: 1px solid var(--color-secondary);
+    margin-bottom: 2rem;
     border-radius: 0.5rem;
-    background-color: var(--color-black);
-    border: 3px solid var(--color-secondary);
-    box-shadow: 0.3rem 0.3rem var(--color-secondary);
+    background-color: var(--color-black-mid-plus);
+    /* box-shadow: 0.3rem 0.3rem var(--color-secondary); */
     height: auto;
     padding: 1rem;
-  }
-
-  /* For screens bigger that 992px */
-  @media screen and (min-width: 992px) {
-    aside {
-      margin: 0;
-      grid-column: 9 / -1;
-    }
-  }
-
-  /* When used as a footer For screens bigger that 992px */
-  @media screen and (min-width: 992px) {
-    aside.footer {
-      margin: 0;
-      margin-top: 5rem;
-      grid-column: 1 / 13;
-    }
-
-    .blog-aside {
-    }
   }
 
   .blog-aside {
@@ -102,25 +95,21 @@ const { footer } = Astro.props;
   }
 
   .blog-aside li a {
-    width: 100%;
+    background-image: var(--svg-tri-bg);
+    border: 1px solid var(--color-black-lighter);
+    color: var(--color-white);
     display: inline-block;
     border-radius: 0.5rem;
-    border: 3px solid var(--color-secondary);
-    box-shadow: 0.3rem 0.3rem var(--color-secondary);
     padding: 1rem;
     margin-bottom: 1rem;
-    background-image: var(--svg-tri-bg);
+    width: 100%;
   }
 
   .blog-aside li a:hover {
     background-color: var(--color-highlight);
+    border: 1px solid var(--color-secondary);
     color: var(--color-white);
     text-decoration: none;
-  }
-
-  .blog-aside h4 {
-    font-family: var(--font-body);
-    font-weight: bold;
   }
 
   .tag-list {
@@ -128,7 +117,14 @@ const { footer } = Astro.props;
     list-style: none;
   }
 
-  .tag-list h4 {
-    margin-bottom: 1rem;
+  .tag-badge {
+    margin-left: 0.3rem;
+    width: max-content;
+    border-radius: 0.3rem;
+    border: 1px solid var(--color-black-lightest);
+    padding: 0 0.2rem;
+    font-size: small;
+    font-weight: 400;
+    color: var(--color-white);
   }
 </style>
