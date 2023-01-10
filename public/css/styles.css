@@ -16,6 +16,7 @@
   --color-quaternary: hsl(203, 50%, 40%);
   --color-white: hsl(0, 0%, 90%);
   --color-black: hsl(0, 0%, 4%);
+  --color-black-mid-plus: hsl(0, 0%,7%);
   --color-black-mid: hsl(0, 0%, 10%);
   --color-black-lighter: hsl(0, 0%, 25%);
   --color-black-lightest: hsl(0, 0%, 35%);
@@ -116,6 +117,8 @@ body {
 }
 
 p {
+  /*  Same as body ^^^^ */
+  /* line-height: 1.75rem; */ 
   margin-bottom: 1.75rem;
 }
 
@@ -140,7 +143,7 @@ h1 {
 }
 
 h2 {
-  /* border-bottom: 0.1rem solid var(--color-secondary); */
+  border-bottom: 0.1rem solid var(--color-secondary);
   font-size: 1.602rem;
   line-height: 2rem;
   margin-bottom: 2rem;
