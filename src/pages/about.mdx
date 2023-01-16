@@ -1,10 +1,7 @@
 ---
 title: About
-layout: "../layouts/About.astro"
+layout: "../layouts/Single.astro"
 
-h1: "About"
-h2: "Me, Myself, and I."
-h3: Hey, I am Kaine, I live in Essex in the UK. I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
 linkTree:
   [
     {
@@ -13,38 +10,45 @@ linkTree:
       label: "GitHub",
     },
     {
-      img: "icons/twitter.svg",
+      img: "/icons/twitter.svg",
       link: "https://twitter.com/Kainey",
       label: "Twitter",
     },
     {
-      img: "icons/linkedin.svg",
+      img: "/icons/linkedin.svg",
       link: "https://www.linkedin.com/in/kaine-bruce-a48a0b36/",
       label: "LinkedIn",
     },
   ]
 ---
 
-import LinkTree from "../components/about/LinkTree.astro";
+import LinkTree from "../components/LinkTree.astro";
+import config from "/config";
 
-# {frontmatter.title}
+# About
 
-## {frontmatter.h2}
+## Hey, I am Kaine I live in Brentwood, Essex in the UK.
 
-### Hey, I am Kaine, I live in Essex in the UK.
-
-#### I am a Python Developer focusing on [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
+### I am a Software Developer currently using Python, JavaScript & Typescript.
 
 <LinkTree links={frontmatter.linkTree} />
 
+## Past
+
 I've dabbled in programming since I was a youngster. It started with an Amstrad 464 where I started to play around with [BASIC](https://en.wikipedia.org/wiki/BASIC).
 
-In the late 90s I only had internet access via my phone ([WAP](https://en.wikipedia.org/wiki/Wireless_Application_Protocol)), at my friends houses or when at school.
+In the late 90s I only had internet access via my phone using [W.A.P](https://en.wikipedia.org/wiki/Wireless_Application_Protocol), or the computers at my friends or at school
 
-I started to learn XHTML, CSS and a bit of JavaScript. That evolved to PHP (of which I've mostly forgotten!) where I built a few sites using Wordpress.
+I started to learn [XHTML](https://en.wikipedia.org/wiki/XHTML), CSS and a bit of JavaScript. That evolved to PHP (of which I've mostly forgotten!) where I built a few sites using Wordpress.
 
-I've since been updating my knowledge of HTML and CSS to their current forms. I've recently learned Python; of which by using [Flask](https://flask.palletsprojects.com/) I built [esocrow.com](https://www.esocrow.com) and the site you're on now :)
+## Present
 
-Other side projects I've made are on my [GitHub](https://github.com/kaineyb). Like my DeltaE 2000 [(colour difference)](https://en.wikipedia.org/wiki/Color_difference) project (check it out on [pypi](https://pypi.org/project/deltae/)). Which tests against a dataset the University of Rochester's [supplied data](http://www2.ece.rochester.edu/~gsharma/ciede2000/) to make sure my code and maths _(thanks to Jamie for the maths help!)_ worked as expected.
+I've since been updating my knowledge of HTML and CSS to their current forms of HTML5 and CSS3.
 
-I chose DeltaE 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for nearly 15 years.
+I learned Python, starting with [Automate the Boring Stuff by Al Swiegart](https://automatetheboringstuff.com/), then onto [Python Crash Course by Eric Matthes](https://ehmatthes.github.io/pcc/).
+
+I augmented this via [Mosh Hamedani's](https://codewithmosh.com/) Courses, [Corey Schafer](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) on Youtube, and I last year completed Harvard's [CS50x](https://pll.harvard.edu/course/cs50-introduction-computer-science?delta=0) ([My Cert](https://certificates.cs50.io/2a97932a-bb33-4fc0-b949-836951297170.pdf?size=A4))
+
+Lately, I've been focusing more on JavaScript and TypeScript.
+
+I've built a few projects, the public ones you can find under [Projects](/projects) or on my [GitHub](https://github.com/kaineyb).

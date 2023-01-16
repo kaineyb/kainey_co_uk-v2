@@ -13,7 +13,7 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/fav/favicon.ico" />
     <link rel="stylesheet" href="/css/styles.css" />
     <meta name="generator" content={Astro.generator} />
@@ -26,21 +26,43 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
-  </body>
+  </body><script>
+    document.querySelector(".hamburger")?.addEventListener("click", () => {
+      document.querySelector(".nav-links")?.classList.toggle("expanded");
+    });
+  </script>
 </html>
 
 <style>
   main {
-    padding: var(--padding-main);
-    padding-top: 3rem;
+    padding: 0 var(--padding-main) 0 var(--padding-main);
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 576px) {
     main {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      /* outline: 1px solid orange; */
       gap: 0 2.5rem;
-      width: 1024px;
+      /* Taking 17px for the scroll bar */
+      width: var(--min-tablet-width-sb);
+      margin: 0 3rem;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    main {
+      /* outline: 1px solid red; */
+      /* Taking 17px for the scroll bar */
+      width: var(--min-laptop-width-sb);
+      margin: 0 3rem;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    main {
+      /* outline: 1px solid violet; */
+
+      /* Taking 17px for the scroll bar */
+      width: var(--min-desktop-width-sb);
       margin: 0 auto;
     }
   }

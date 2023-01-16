@@ -1,0 +1,28 @@
+---
+import MiniBlog from "../../components/blogs/MiniBlog.astro";
+import Layout from "../../layouts/SideBarLayout.astro";
+
+const posts = await Astro.glob("../../content/posts/*.mdx");
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+---
+
+<Layout title="Welcome">
+  <section>
+    <h1>All Blog Posts</h1>
+
+    {nonDraftPosts.map((post) => <MiniBlog post={post} />)}
+  </section>
+
+  <style>
+    @media screen and (min-width: 992px) {
+      section {
+        grid-column-start: 1;
+        grid-column-end: 9;
+      }
+    }
+
+    article {
+      margin-bottom: 5rem;
+    }
+  </style>
+</Layout>

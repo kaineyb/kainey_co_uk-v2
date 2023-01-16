@@ -2,20 +2,37 @@
 const { slug, title, description } = Astro.props;
 ---
 
-<h2>
+<div>
   <a href={`/blog/${slug}`}>
-    {title}
+    <h2>
+      {title}
+    </h2>
+    <h3>{description}</h3>
   </a>
-</h2>
-<h3>{description}</h3>
+</div>
 
 <style>
-  h2 > a {
+  h2 {
+    margin-top: 0;
+    border: 0;
+  }
+
+  h2 {
+    color: var(--color-headings);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--color-secondary);
+  }
+
+  a h3 {
     color: var(--color-headings);
   }
 
-  h2 > a:hover {
+  div:hover a h2,
+  div:hover a h3 {
+    /* outline: 1px solid gold; */
+    text-decoration: underline;
     color: var(--color-headings);
-    text-decoration-color: var(--color-secondary);
+    text-decoration-color: var(--color-primary);
   }
 </style>

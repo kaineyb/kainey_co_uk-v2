@@ -7,3 +7,15 @@ const { pubDate, author } = Astro.props;
 <p>
   <strong>Posted on {outputTimeDate(pubDate)} by {author}</strong>
 </p>
+
+<style>
+  p {
+    /* border-radius: 0.3rem; */
+    /* border */
+    background-color: var(--color-black);
+    background-image: var(--svg-tri-bg);
+    padding: 0.5rem;
+    /* border: 1px solid var(--color-black-lighter); */
+    border-top: 1px solid var(--color-secondary);
+  }
+</style>

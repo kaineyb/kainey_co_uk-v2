@@ -1,0 +1,65 @@
+---
+import "animate.css";
+const title = "Kaine Bruce";
+---
+
+<div><a href="/">{title}</a></div>
+
+<style>
+  div {
+    height: 35px;
+    font-size: 1.5rem;
+    font-family: var(--font-banner);
+    font-weight: 900;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  /* Background Gradient */
+  div a {
+    color: transparent;
+    background: linear-gradient(
+      45deg,
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-tertiary)
+    );
+    background-size: 800% 800%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: AnimationName 30s ease infinite;
+  }
+
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 51%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* div a {
+    color: var(--color-primary);
+  } */
+
+  div:hover a {
+    /* text-shadow: 0.1rem 0.1rem var(--color-black-lighter); */
+    /* color: black; */
+    /* color: tra; */
+    text-decoration: none;
+    animation: tada; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: 1;
+  }
+
+  @media screen and (min-width: 576px) {
+    div {
+      font-size: 1.8rem;
+    }
+  }
+</style>

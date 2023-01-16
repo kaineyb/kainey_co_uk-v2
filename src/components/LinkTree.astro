@@ -1,0 +1,59 @@
+---
+const { links } = Astro.props;
+---
+
+{
+  links.length >= 1 && (
+    <ul class="link-tree">
+      {links.map((link: { link: string; img: string; label: string }) => (
+        <li>
+          <img src={link.img} class="link-tree__icon" />
+          <a href={link.link}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .link-tree {
+    background-color: var(--color-black-mid-plus);
+    background-image: var(--svg-tri-bg);
+    border: 0.1rem solid var(--color-black-lighter);
+    padding: 0.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link-tree a {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .link-tree a:hover {
+    /* color: var(--color-secondary); */
+    text-decoration: underline;
+  }
+
+  .link-tree__icon {
+    width: 24px;
+    margin-bottom: -6px;
+  }
+
+  @media screen and (min-width: 576px) {
+    .link-tree {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    li {
+      border-right: 1px solid var(--color-black-lighter);
+      padding-right: 1rem;
+    }
+
+    li:last-of-type {
+      border: 0;
+    }
+  }
+</style>

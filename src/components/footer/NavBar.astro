@@ -35,11 +35,12 @@ import { config } from "../../../config";
 
   a {
     text-decoration: none;
+    color: var(--color-white);
   }
 
   a:hover {
     text-decoration: underline;
-    color: var(--color--whitepoint);
+    color: var(--color-primary);
   }
 
   li .active::before {
@@ -50,7 +51,7 @@ import { config } from "../../../config";
     content: "«";
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     ul {
       padding-left: 0;
       list-style: none;

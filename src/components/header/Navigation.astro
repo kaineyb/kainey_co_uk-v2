@@ -1,0 +1,62 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+import { config } from "../../../config";
+---
+
+<div class="nav-links">
+  {
+    config.navLinks.map(
+      (link) =>
+        link.display.navBar && (
+          <a class={pathname === link.href ? "active" : ""} href={link.href}>
+            {link.label}
+          </a>
+        )
+    )
+  }
+</div>
+
+<style>
+  /* nav styles */
+
+  .nav-links {
+    display: none;
+    margin: 0;
+  }
+
+  .nav-links a {
+    color: var(--color-white);
+    display: block;
+    text-align: left;
+    padding: 10px 2rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .nav-links a:hover,
+  a:focus {
+    background-image: inherit;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    animation: pulse; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: infinite;
+  }
+
+  .expanded {
+    display: unset;
+  }
+
+  @media screen and (min-width: 576px) {
+    .nav-links {
+      display: block;
+      width: auto;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  }
+</style>

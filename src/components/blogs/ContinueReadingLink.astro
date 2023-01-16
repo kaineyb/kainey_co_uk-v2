@@ -2,19 +2,31 @@
 const { slug } = Astro.props;
 ---
 
-<p>
-  <a href={`/blog/${slug}`} class="blog-continue-reading">
-    Continue Reading &raquo;
-  </a>
-</p>
+<a href={`/blog/${slug}`}>&raquo; Continue Reading &raquo;</a>
 
 <style>
-  .blog-continue-reading {
+  a {
+    margin-top: 0;
+    background-color: var(--color-primary);
+    background-image: var(--svg-tri-bg);
+    border-radius: 0 0 0.5rem 0.5rem;
+    /* border: 3px solid black; */
+    /* box-shadow: 0.3rem 0.3rem var(--color-black-lightest); */
+    color: var(--color-body-darker);
+    display: inline-block;
     font-weight: bold;
-    display: block;
+    height: 2rem;
+    line-height: 0;
+    padding: 1rem;
+    /* text-align: center; */
     width: 100%;
-    text-decoration: none;
-    color: var(--color-body);
-    border-bottom: 0.2rem solid var(--color-secondary);
+  }
+  a:hover {
+    background-color: var(--color-secondary);
+    /* box-shadow: 0.3rem 0.3rem var(--color-highlight); */
+    color: var(--color-white);
+    /* text-decoration-color:  */
+    text-decoration-thickness: 0.1rem;
+    /* text-decoration: none; */
   }
 </style>

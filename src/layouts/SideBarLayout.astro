@@ -6,6 +6,63 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title}>
-  <slot />
-  <RecentPosts />
+  <section class="sidebar_layout">
+    <div class="left_bar"><slot /></div>
+    <div class="recentPosts"><RecentPosts /></div>
+  </section>
 </Layout>
+
+<style>
+  /* Mobile */
+
+  .sidebar_layout {
+    background-color: var(--color-black-mid);
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 576px) {
+    /*  Tablets > */
+    .sidebar_layout {
+      padding: 3rem;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    /*  Laptops > */
+    .sidebar_layout {
+      padding: 5rem;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    /* Desktop */
+    :root {
+      --gap-width: 5rem;
+      /* 30 - 50em   for readability*/
+      --left-width: 50em;
+      --right-width: 15em;
+      --total-width: calc(
+        var(--gap-width) + var(--left-width) +var(--right-width)
+      );
+    }
+
+    .sidebar_layout {
+      padding: 5rem;
+      background-color: var(--color-black-mid);
+      width: var(--total-width);
+      gap: var(--gap-width);
+      flex-direction: row;
+    }
+    .left_bar {
+      width: var(--left-width);
+    }
+
+    .recentPosts {
+      flex: 0 0 var(--right-width);
+    }
+  }
+</style>

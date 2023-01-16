@@ -1,58 +1,67 @@
 ---
-title: DeltaE
+title: Delta E Colour Calculator
+type: "Python Library"
+tags: ["Python", "PyPi"]
 slug: deltae
 pubDate: 0001-01-02 0:00
-image: https://img.kainey.co.uk/deltae.png
+image: /images/projects/deltae/header.png
 homepage: https://pypi.org/project/deltae/
 repository: https://github.com/kaineyb/deltae
-excerpt: "Returns a value of colour difference using the '00 or '76 DeltaE formula."
+excerpt: "A Delta E value of less that 0 is generally perceived as being the same colour by most humans. This calculator returns a value using the '00 or '76 Delta E formula."
+# featured: true
 # draft: true
 ---
 
-Returns a value of colour difference using the '00 or '76 DeltaE formula.
+## Intro
 
-A Delta E value of less that 0 is generally perceived as being the same colour by most humans. Pantone swatches are produced within a DeltaE of 2.0. More reading here on the [colour difference](http://www.colorwiki.com/wiki/Delta_E:_The_Color_Difference):
+Returns a value of colour difference using the '00 or '76 Delta E formula.
 
-I created this module with the plan to test against a dataset supplied by the [University of Rochester](http://www2.ece.rochester.edu/~gsharma/ciede2000/) to make sure my code (and maths - _thanks to Jamie for the maths help and guidance!)_ worked as expected. I created code to automatically create the tests needed from the dataset supplied.
+A Delta E value of less that 0 is generally perceived as being the same colour by most humans. Pantone swatches (used by designers and printers) are produced within a Delta E of 2.0. Read more here: [colour difference](http://www.colorwiki.com/wiki/Delta_E:_The_Color_Difference):
 
-I chose DeltaE 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for nearly 15 years. I originally started working on this in JavaScript years ago, however I found that Bruce Lindbloom had done the same on his site, so decided to see if I could do this to Python.
+## Project Outline
 
-[![](https://app.travis-ci.com/kaineyb/deltae.svg?branch=master)](https://app.travis-ci.com/kaineyb/deltae) Built and tested using [poetry](https://python-poetry.org/), [unittest](https://docs.python.org/3/library/unittest.html) and [Travis CI](https://www.travis-ci.com/)
+I created this module with the plan to test against a dataset supplied by the [University of Rochester](http://www2.ece.rochester.edu/~gsharma/ciede2000/). This was to make sure my code and maths worked as expected. I created code to automatically create the tests needed from the dataset supplied.
+
+Big thanks to Jamie Y for the maths help and guidance!
+
+I chose Delta E 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for nearly 15 years. I originally started working on this in JavaScript years ago, however I found that [Bruce Lindbloom](http://www.brucelindbloom.com/index.html?ColorDifferenceCalc.html) had done the same on his site, so decided to see if I could do this to Python.
+
+## Features
+
+[![build passing](https://app.travis-ci.com/kaineyb/deltae.svg?branch=master)](https://app.travis-ci.com/kaineyb/deltae)
+
+Built and tested using [poetry](https://python-poetry.org/), [unittest](https://docs.python.org/3/library/unittest.html) and [Travis CI](https://www.travis-ci.com/)
 
 **Using:** Python with the builtin math module and testing using unittest.
 
 **Features:**
 
-- Delta E 2000 Colour Difference
-- Delta E 1976 Colour Difference
+- Colour Difference Calculator using the Delta E 2000 & 1976 formulas
 
-**Installation:**
+## Addendum
 
-```bash
-pip install deltae
-```
+It has come to my attention that the ColorMath Library for Python has a Delta E implementation (see [here](https://python-colormath.readthedocs.io/en/latest/delta_e.html)).
+However, as this was my first foray into building something myself in python, I am still going to keep this project up on PyPi. I am also not sure if they would pass the Rochester dataset, or if that is even the best benchmark.
 
-**Example Usage:**
+## Installation (using pip)
 
 ```bash
-    import deltae
+> pip install deltae
 ```
 
-**Takes CIELAB values as a dictionary - example below:**
+## Example Usage
 
 ```py
+import deltae
+
+# Takes CIELAB values as a dictionary:
 Lab1 = {'L': 50.00, 'a': 2.6772, 'b': -79.7751}
 Lab2 = {'L': 50.00, 'a': 0.00, 'b': -82.7485}
-```
 
-**Get the DeltaE 1976 Formula of 2 Lab Values:**
+# Get the DeltaE 1976 Formula of 2 Lab Values:
+deltae.delta_e_1976(Lab1, Lab2)
 
-```py
-    deltae.delta_e_1976(Lab1, Lab2)
-```
+# Get the DeltaE 2000 Formula of 2 Lab Values:
+deltae.delta_e_2000(Lab1, Lab2)
 
-**Get the DeltaE 2000 Formula of 2 Lab Values:**
-
-```py
-    deltae.delta_e_2000(Lab1, Lab2)
 ```
