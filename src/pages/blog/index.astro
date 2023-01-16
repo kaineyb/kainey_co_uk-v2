@@ -3,7 +3,14 @@ import MiniBlog from "../../components/blogs/MiniBlog.astro";
 import Layout from "../../layouts/SideBarLayout.astro";
 
 const posts = await Astro.glob("../../content/posts/*.mdx");
-const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+let nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+
+// Sort based on pubDate
+nonDraftPosts = nonDraftPosts.sort((a, b) => {
+  if (a.frontmatter.pubDate < b.frontmatter.pubDate) return 1;
+  if (a.frontmatter.pubDate > b.frontmatter.pubDate) return -1;
+  return 0;
+});
 ---
 
 <Layout title="Welcome">

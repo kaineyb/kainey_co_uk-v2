@@ -28,9 +28,7 @@ export interface Props {
 const { slug } = Astro.params;
 const projects = await Astro.glob("../../content/projects/*.mdx");
 
-const nonDraftProjects = projects.filter(
-  (project) => !project.frontmatter.draft
-);
+let nonDraftProjects = projects.filter((project) => !project.frontmatter.draft);
 
 const project = nonDraftProjects.find(
   (project) => project.frontmatter.slug === slug
