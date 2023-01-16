@@ -15,26 +15,23 @@ const { frontmatter, title } = Astro.props;
 
   section.single {
     background-color: var(--color-black-mid);
-    /* margin: 1rem; */
+    margin: 0 auto;
     padding: 5rem 1rem;
   }
 
   @media screen and (min-width: 576px) {
     section.single {
-      /* 30 - 50em  */
       padding: 5rem 2rem;
-      width: 30em;
-      margin: 0 auto;
     }
   }
 
   /* For Desktops  */
   @media screen and (min-width: 992px) {
     section.single {
-      /* 30 - 50em  */
       padding: 5rem 5rem;
+      /* Only limit the width beyond this */
+      /* 30 - 50em  */
       width: 50em;
-      margin: 0 auto;
     }
   }
 </style>

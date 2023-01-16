@@ -67,6 +67,22 @@ if (exists(frontmatter.repository)) {
     label: "Repository",
   });
 }
+
+if (exists(frontmatter.frontEndRepository)) {
+  linkTreeData.push({
+    link: frontmatter.frontEndRepository,
+    img: "/icons/github.svg",
+    label: "Frontend",
+  });
+}
+
+if (exists(frontmatter.backEndRepository)) {
+  linkTreeData.push({
+    link: frontmatter.backEndRepository,
+    img: "/icons/github.svg",
+    label: "Backend",
+  });
+}
 ---
 
 <Layout title={frontmatter.title}>
