@@ -36,6 +36,22 @@ const { project, Content } = Astro.props;
               <a href={project.frontmatter.repository}>Repository</a>
             </li>
           )
+        }{
+          project.frontmatter.frontEndRepository && (
+            <li>
+              <img src="/icons/github.svg" alt="" class="project__icon" />
+              <a href={project.frontmatter.frontEndRepository}>Frontend</a>
+            </li>
+          )
+        }
+
+        {
+          project.frontmatter.backEndRepository && (
+            <li>
+              <img src="/icons/github.svg" alt="" class="project__icon" />
+              <a href={project.frontmatter.backEndRepository}>Backend</a>
+            </li>
+          )
         }
       </ul>
       {project.frontmatter.excerpt}

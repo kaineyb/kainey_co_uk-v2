@@ -5,6 +5,8 @@ import MoreProjectsButton from "./MoreProjectsButton.astro";
 const projects = await Astro.glob("../../content/projects/*.mdx");
 let nonDraftPosts = projects.filter((project) => !project.frontmatter.draft);
 
+let totalPosts = projects.length;
+
 // Sort based on pubDate
 nonDraftPosts = nonDraftPosts.sort((a, b) => {
   if (a.frontmatter.pubDate < b.frontmatter.pubDate) return 1;
@@ -26,7 +28,7 @@ const { amount } = Astro.props;
     }
   </section>
 
-  {amount && <MoreProjectsButton />}
+  {totalPosts > amount && <MoreProjectsButton />}
 </section>
 
 <style>
