@@ -48,6 +48,7 @@ const { project, Content } = Astro.props;
 
 <style>
   article {
+    border: 1px solid var(--color-black-lighter);
     background-color: var(--color-black-mid-plus);
     background-image: var(--svg-tri-bg);
     border-radius: 0.3rem;
@@ -73,6 +74,11 @@ const { project, Content } = Astro.props;
 
   article:hover .project__image {
   }
+
+  /* .image_container img {
+    border: 1px solid var(--color-black-lighter);
+    border-bottom: 0;
+  } */
 
   .image_container:hover .project__image {
     opacity: 0.5;

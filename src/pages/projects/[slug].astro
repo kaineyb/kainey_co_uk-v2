@@ -105,8 +105,10 @@ if (exists(frontmatter.backEndRepository)) {
 </Layout>
 
 <style>
-  article > .project__image {
+  .project__image {
     width: 100%;
+    border: 1px solid var(--color-black-lighter);
+    /* outline: 1px solid gold; */
     /* border: 1px solid var(--color-black-lightest); */
     /* border-radius: 0.3rem; */
     /* box-shadow: 0.2rem 0.2rem var(--color-body-lighter); */
@@ -116,6 +118,8 @@ if (exists(frontmatter.backEndRepository)) {
   @media screen and (min-width: 576px) {
     .project__image {
       object-fit: cover;
+      object-position: 50% 50%;
+
       height: 20rem;
     }
   }
