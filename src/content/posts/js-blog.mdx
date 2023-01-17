@@ -5,8 +5,14 @@ pubDate: 2022-04-12 08:59
 description: "While learning React, I was taught to use the spread operator to copy an array. This is not always a good idea."
 author: "Kaine"
 tags: ["JavaScript", "React"]
-excerpt: ""
+excerpt: "When updating the state in React I was taught to first copy the objects using the spread operator. However, this doesn't actually copy the objects, it just copies the reference of the object. ie, it's the same object!
+
+If you're unaware of it, this could catch you off guard."
 ---
+
+When updating the state in React I was taught to first copy the objects using the spread operator. However, this doesn't actually copy the objects, it just copies the reference of the object. ie, it's the same object!
+
+If you're unaware of it, this could catch you off guard.
 
 Consider the below:
 
