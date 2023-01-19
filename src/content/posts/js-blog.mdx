@@ -10,7 +10,7 @@ excerpt: "When updating the state in React I was taught to first copy the object
 If you're unaware of it, this could catch you off guard."
 ---
 
-When updating the state in React I was taught to first copy the objects using the spread operator. However, this doesn't actually copy the objects, it just copies the reference of the object. ie, it's the same object!
+When updating the state in React I was taught to first copy the objects using the spread operator. Yet, this doesn't copy the objects, it copies the reference of the object. ie, it's the same object!
 
 If you're unaware of it, this could catch you off guard.
 
@@ -26,7 +26,7 @@ const array2 = [...array1];
 
 We _create_ an **array** called array1, and we 'copy' it using the spread operator '`...`'
 
-Now we have a copy we can update this, and the original will be intact right? Nope, wrong.
+We can update a copy, and the original will be intact, right? Nope, wrong.
 
 ```js
 array2[0]["name"] = "Bob";
@@ -66,25 +66,25 @@ Any ideas? I am going with mutability.
 
 > In JavaScript, only objects and arrays are mutable, not primitive values.
 
-If you've never heard of mutability, mutable and immutable. Think mutant and mutation. In laymen terms, changeable and unchangeable. You can read more on [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Mutable)
+If you've never heard of mutability, mutable and immutable. Think mutant and mutation. In layman's terms, changeable and unchangeable. You can read more on [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Mutable)
 
-Still don't follow? Well, we can't actually change the number 1 into number 33. What actually happens is we're dumping out the reference to number 1 and changing it to the reference to number 33.
+Still don't follow? Well, we can't actually change the number 1 to number 33. What actually happens is we're dumping out the reference to number 1 and changing it to the reference to number 33.
 
-In our original example we used objects, which ARE mutable. So the object is the same. Fundamentally we have a list (array) of objects, and if we copy that list we still have the same reference to the object in memory. And if we change that object in memory, both lists reference the same object so both lists update.
+In our original example, we used objects, which ARE mutable. So the object is the same. We have a list (array) of objects, and if we copy that list we still have the same reference to the object in memory. And if we change that object in memory, both lists reference the same object so both lists update.
 
 I hope that explains it.
 
-### Alright great, you've proved your point, but HOW do I clone an array of objects to update the state without changing the original?
+### Great, you've proved your point! But how do I clone an array of objects to update the state without changing the original?
 
-Well good question.
+Well, good question. 
 
-Personally the only solution I've seen that is also relatively short. Is using the map method of the Array class.
+The only solution I've seen that is also short. It uses the map method of the Array class.
 
 ```js
 const array2 = array1.map((item) => ({ ...item }));
 ```
 
-We're creating a new object, with the same key value pairs. Therefore it has a new reference and therefore it doesn't change when we update the original.
+We're creating a new object, with the same key-value pairs. So it has a new reference and thus it doesn't change when we update the original.
 
 ```js
 const array1 = [
@@ -106,7 +106,7 @@ const array2 = array1.map((item) => ({ ...item }));
 array2[0]["name"] = "Bob";
 
 
-// we can see that array2 has changed and that array1 is unchanged!
+// we can see that array2 has changed and that array1 hasn't changed!
 > array2
 [
   { id: 1, name: "Bob" },
@@ -120,7 +120,7 @@ array2[0]["name"] = "Bob";
 ];
 ```
 
-And hey, with this code we're still using the spread method right?
+And hey, with this code we're still using the spread method, right?
 
 Hope that helps!
 

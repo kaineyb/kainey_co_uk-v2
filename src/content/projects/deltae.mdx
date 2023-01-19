@@ -14,17 +14,17 @@ excerpt: "A Delta E value of less that 0 is generally perceived as being the sam
 
 ## Intro
 
-Returns a value of colour difference using the '00 or '76 Delta E formula.
+Most humans generally perceive a Delta E value of less than 0 as the same colour. Pantone swatches used by designers and printers for colour matching are produced by Pantone within a Delta E of 2.0. Read more about [colour difference](http://www.colorwiki.com/wiki/Delta_E:_The_Color_Difference)
 
-A Delta E value of less that 0 is generally perceived as being the same colour by most humans. Pantone swatches (used by designers and printers) are produced within a Delta E of 2.0. Read more here: [colour difference](http://www.colorwiki.com/wiki/Delta_E:_The_Color_Difference):
+This calculator returns a value of colour difference using the '00 or '76 Delta E formula.
 
 ## Project Outline
 
-I created this module with the plan to test against a dataset supplied by the [University of Rochester](http://www2.ece.rochester.edu/~gsharma/ciede2000/). This was to make sure my code and maths worked as expected. I created code to automatically create the tests needed from the dataset supplied.
+I created this module with the plan to test against a dataset supplied by the [University of Rochester](http://www2.ece.rochester.edu/~gsharma/ciede2000/). This was to make sure my code and maths worked as expected. I created code to create the tests needed from the dataset supplied.
 
 Big thanks to Jamie Y for the maths help and guidance!
 
-I chose Delta E 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for nearly 15 years. I originally started working on this in JavaScript years ago, however I found that [Bruce Lindbloom](http://www.brucelindbloom.com/index.html?ColorDifferenceCalc.html) had done the same on his site, so decided to see if I could do this to Python.
+I chose Delta E 2000 because I've always liked the science behind colour and light; along with the fact I had worked in the print industry for 15 years. I started working on this in JavaScript years ago, but I found that [Bruce Lindbloom](http://www.brucelindbloom.com/index.html?ColorDifferenceCalc.html) had done the same on his site, so decided to see if I could do this in Python.
 
 ## Features
 
@@ -41,7 +41,7 @@ Built and tested using [poetry](https://python-poetry.org/), [unittest](https://
 ## Addendum
 
 It has come to my attention that the ColorMath Library for Python has a Delta E implementation (see [here](https://python-colormath.readthedocs.io/en/latest/delta_e.html)).
-However, as this was my first foray into building something myself in python, I am still going to keep this project up on PyPi. I am also not sure if they would pass the Rochester dataset, or if that is even the best benchmark.
+Yet as this was my first foray into building something myself in python. I am still going to keep this project up on PyPi. I am also not sure if they would pass the Rochester data-set, or if that is even the best benchmark.
 
 ## Installation (using pip)
 
