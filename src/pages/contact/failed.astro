@@ -1,0 +1,28 @@
+---
+import Layout from "../../layouts/Single.astro";
+
+const title = "Sorry, your message has not been sent!";
+
+import { config } from "../../../config";
+---
+
+<Layout title={title}>
+  <section>
+    <h1>{title}</h1>
+    <p>
+      The electric pixies behind the scenes do not want to play right now.
+      Please try again later!
+    </p>
+    <p>
+      PS. You can always reach out to me on <a href={config.linkedInLink}
+        >LinkedIn</a
+      >
+    </p>
+  </section>
+</Layout>
+
+<style>
+  /* section {
+    min-height: 60vh;
+  } */
+</style>
