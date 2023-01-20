@@ -6,6 +6,6 @@ export const onRequest: PagesFunction = mailChannelsPlugin({
   ],
   from: { name: "Contact Form @ Kainey.co.uk", email: "contact@kainey.co.uk" },
   respondWith: () => {
-    return Response.redirect("/contact/success", 200);
+    return Response.redirect("/contact/success");
   },
 });
