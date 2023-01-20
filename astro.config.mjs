@@ -12,6 +12,8 @@ import cloudflare from "@astrojs/cloudflare";
 // Code Hike
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://kainey.pages.dev/",
   markdown: {
@@ -21,6 +23,7 @@ export default defineConfig({
     },
     // syntaxHighlight: "shiki",
   },
+
   integrations: [react(), mdx()],
   output: "server",
   adapter: cloudflare({ mode: "directory" }),
