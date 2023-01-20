@@ -1,6 +1,6 @@
 import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-const baseURl = process.env.CF_PAGES_URL;
+const baseURl = import.meta.env.CF_PAGES_URL;
 
 export const onRequest: PagesFunction = mailChannelsPlugin({
   personalizations: [
