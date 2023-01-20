@@ -1,6 +1,6 @@
 import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-const baseURl = "https://dev.kainey.pages.dev/";
+const baseURl = "https://dev.kainey.pages.dev";
 
 export const onRequest: PagesFunction = mailChannelsPlugin({
   personalizations: [

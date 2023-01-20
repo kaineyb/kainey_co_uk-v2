@@ -1,3 +1,5 @@
+const baseURl = "https://dev.kainey.pages.dev";
+
 export function onRequest(context) {
-  return new Response(`${context.env.CF_PAGES_URL}`);
+  return Response.redirect(baseURl + "/contact/success");
 }
