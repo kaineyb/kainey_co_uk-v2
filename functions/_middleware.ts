@@ -8,6 +8,6 @@ export const onRequest: PagesFunction = mailChannelsPlugin({
   respondWith: () =>
     new Response(null, {
       status: 302,
-      headers: { Location: "/success" },
+      headers: { Location: "contact/success" },
     }),
 });

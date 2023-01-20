@@ -1,5 +1,6 @@
-const baseURl = "https://dev.kainey.pages.dev";
-
 export function onRequest(context) {
-  return Response.redirect(baseURl + "/contact/success");
+  return new Response(null, {
+    status: 302,
+    headers: { Location: "contact/success" },
+  });
 }
