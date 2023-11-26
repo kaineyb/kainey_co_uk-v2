@@ -11,19 +11,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^4.1.0",
     "@astrojs/mdx": "^0.12.0",
     "@astrojs/react": "^1.2.2",
+    "@astrojs/vue": "^3.0.4",
     "@emotion/react": "^11.10.5",
     "@mdx-js/react": "^2.1.5",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-vue": "^4.5.0",
     "animate.css": "^4.1.1",
     "astro": "^1.6.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vue": "^3.3.9"
   },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^4.20221111.1"
-  }
+  "devDependencies": {}
 }

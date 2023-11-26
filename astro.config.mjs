@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
-import cloudflare from "@astrojs/cloudflare";
+import vue from "@astrojs/vue";
 
 // Code Hike
 
@@ -21,7 +21,6 @@ export default defineConfig({
     },
     // syntaxHighlight: "shiki",
   },
-  integrations: [react(), mdx()],
+  integrations: [react(), mdx(), vue()],
   output: "server",
-  adapter: cloudflare({ mode: "directory" }),
 });
