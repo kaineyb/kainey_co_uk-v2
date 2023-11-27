@@ -22,5 +22,5 @@ export default defineConfig({
     // syntaxHighlight: "shiki",
   },
   integrations: [react(), mdx(), vue()],
-  output: "server",
+  output: "static",
 });
