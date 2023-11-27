@@ -24,19 +24,22 @@ export interface Props {
   title: string;
 }
 
-// const { Content, frontmatter } = Astro.props.post;
+const { Content, frontmatter } = Astro.props.post;
 
 // SSR
 
-const { slug } = Astro.params;
-const posts = await Astro.glob("../../content/posts/*.mdx");
+// const { slug } = Astro.params;
+// const posts = await Astro.glob("../../content/posts/*.mdx");
 
-const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+// const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 
-const post = nonDraftPosts.find((post) => post.frontmatter.slug === slug);
-if (!post) return Astro.redirect("/404");
+// const post = nonDraftPosts.find((post) => post.frontmatter.slug === slug);
 
-const { Content, frontmatter } = post;
+// if (!post) return Astro.redirect("/404");
+
+// const { Content, frontmatter } = post;
+
+// SSR End
 ---
 
 <Layout title={frontmatter.title}>

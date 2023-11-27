@@ -21,21 +21,23 @@ export interface Props {
   title: string;
 }
 
-// const { Content, frontmatter } = Astro.props.project;
+const { Content, frontmatter } = Astro.props.project;
 
 // SSR
 
-const { slug } = Astro.params;
-const projects = await Astro.glob("../../content/projects/*.mdx");
+// const { slug } = Astro.params;
+// const projects = await Astro.glob("../../content/projects/*.mdx");
 
-let nonDraftProjects = projects.filter((project) => !project.frontmatter.draft);
+// let nonDraftProjects = projects.filter((project) => !project.frontmatter.draft);
 
-const project = nonDraftProjects.find(
-  (project) => project.frontmatter.slug === slug
-);
-if (!project) return Astro.redirect("/404");
+// const project = nonDraftProjects.find(
+//   (project) => project.frontmatter.slug === slug
+// );
+// if (!project) return Astro.redirect("/404");
 
-const { Content, frontmatter } = project;
+// const { Content, frontmatter } = project;
+
+// SSR End
 
 type linkTree = {
   link: string;
