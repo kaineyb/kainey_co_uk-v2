@@ -1,10 +1,8 @@
 <template>
   <div class="test">
-    Local Time:
-    {{ currentTime }}
+    <strong>Local Time:</strong> {{ currentTime }}
     <br />
-    Time Zone:
-    {{ browserData.timeZone }}
+    <strong>Time Zone:</strong> {{ browserData.timeZone }}
   </div>
 </template>
 <script setup lang="ts">
@@ -22,8 +20,4 @@ setInterval(() => {
   currentTime.value = getCurrentTime();
 }, 100);
 </script>
-<style scoped>
-.test {
-  outline: 1px solid gold;
-}
-</style>
+<style scoped></style>
