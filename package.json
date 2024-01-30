@@ -10,19 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.12.0",
-    "@astrojs/react": "^1.2.2",
-    "@astrojs/vue": "^3.0.4",
+    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/react": "^3.0.9",
+    "@astrojs/vue": "^4.0.8",
     "@emotion/react": "^11.10.5",
     "@mdx-js/react": "^2.1.5",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-vue": "^4.5.0",
     "animate.css": "^4.1.1",
-    "astro": "^1.6.12",
+    "astro": "^4.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vue": "^3.3.9"
-  },
-  "devDependencies": {}
+  }
 }
