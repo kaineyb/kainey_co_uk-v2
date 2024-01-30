@@ -10,6 +10,14 @@ export async function getStaticPaths() {
 
   const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 
+  function getTaggedPosts(tag: string) {
+    return nonDraftPosts.filter((post) =>
+      post.frontmatter.tags.some(
+        (element: string) => element.toLowerCase() === tag.toLowerCase()
+      )
+    );
+  }
+
   const tagsArray: string[][] = nonDraftPosts.map(
     (item) => item.frontmatter.tags
   );
@@ -20,36 +28,24 @@ export async function getStaticPaths() {
     params: {
       tag: tag.toLowerCase(),
     },
+    props: {
+      taggedPosts: getTaggedPosts(tag),
+    },
   }));
 }
 
 // SSR
 
-const posts = await Astro.glob("../../../content/posts/*.mdx");
-
-const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
-
-export interface Props {
-  title: string;
-}
-
-export interface Params {
-  tag: string;
-}
+// const posts = await Astro.glob("../../../content/posts/*.mdx");
 
 const { tag }: { tag: string } = Astro.params;
-
-const taggedPosts = nonDraftPosts.filter((post) =>
-  post.frontmatter.tags.some(
-    (element: string) => element.toLowerCase() === tag.toLowerCase()
-  )
-);
+const { taggedPosts } = Astro.props;
 ---
 
 <Layout title={`All Blogs tagged with: ${toTitleCase(tag)}`}>
   <section>
     <h1>All Blogs tagged with: {toTitleCase(tag)}</h1>
-    {taggedPosts.map((post) => <MiniBlog post={post} />)}
+    {taggedPosts.map((post: object) => <MiniBlog post={post} />)}
   </section>
 </Layout>
 
